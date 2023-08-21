@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# RE-UP: CLOTHING EXCHANGE
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Project Description: eCommerceX - Empowering Online Clothing Sales
 
-## Available Scripts
+Welcome to eCommerceX, an innovative MERN-stack application that redefines online clothing sales. This project combines the power of modern web technologies to create a dynamic and user-friendly eCommerce platform with a unique twist. The application offers two distinct modes - a traditional eCommerce storefront and an engaging social media-style infinite scroll mode - providing users with diverse and engaging shopping experiences.
 
-In the project directory, you can run:
+### Tech Stack:
 
-### `npm start`
+Frontend: React, SASS, React Bootstrap
+The frontend of eCommerceX is built on React, utilizing the flexibility of SASS for styling and enhanced UI components from React Bootstrap. This ensures a responsive, visually appealing, and interactive user interface.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Backend: Express, Node.js
+The backend is powered by Express and Node.js, offering a robust foundation for handling API requests, user authentication, and data management. Node.js enables efficient handling of server-side operations.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Database: MongoDB, Mongoose, GraphQL
+MongoDB serves as the database, while Mongoose simplifies data modeling and interaction. The inclusion of GraphQL enhances data querying efficiency and flexibility, enabling smooth data retrieval for various frontend components.
 
-### `npm test`
+### Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User Authentication and Registration:
+Users can easily sign up and create accounts, enabling them to engage with the platform as both buyers and sellers.
 
-### `npm run build`
+Traditional eCommerce Storefront:
+The eCommerce store features a user-friendly interface where sellers can list their clothes with detailed information and high-quality images. Buyers can browse through various categories, filter options, and product details before making purchases.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Social Media-style Infinite Scroll:
+eCommerceX offers a unique browsing experience with an infinite scroll feature reminiscent of popular social media platforms. Users can effortlessly discover new clothing items by scrolling through a dynamic feed of products.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+User Profiles and Interactions:
+Sellers have access to a dedicated dashboard where they can manage their product listings, track sales, and gain insights into customer interactions. Each user also has a personalized profile showcasing their listed items, purchase history, and saved items, fostering a sense of community engagement.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Secure Payment Gateway Integration:
+The platform integrates a secure payment gateway, ensuring smooth and safe transactions for both buyers and sellers.
 
-### `npm run eject`
+Responsive Design:
+eCommerceX is optimized for various devices, offering a seamless shopping experience across desktops, tablets, and smartphones.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Conclusion:
+eCommerceX is not just another eCommerce platform; it's an immersive blend of modern web technologies that transforms online clothing sales into an engaging and community-driven experience. With its dual shopping modes, user-centric features, and robust technology stack, eCommerceX is poised to redefine the way users buy and sell clothes online. Join us on this journey to revolutionize the world of fashion commerce.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Authors
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Christian Alteri
+Mackenzie Lukic
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
