@@ -44,3 +44,5 @@ eCommerceX is not just another eCommerce platform; it's an immersive blend of mo
 Christian Alteri
 Mackenzie Lukic
 
+#### Github
+https://github.com/ChristianAlteri/theGrandExchange
