@@ -21,7 +21,6 @@ const typeDefs = gql`
     description: String
     image: String
     price: Float!
-    quantity: Int!
     category: Category!
   }
 
@@ -31,8 +30,8 @@ const typeDefs = gql`
     lastName: String!
     username: String!
     email: String!
-    product_id: ID!
     location: String!
+    products: [Product]
     orders: [Order]
   }
 
@@ -58,7 +57,6 @@ const typeDefs = gql`
     description: String
     image: String
     price: Float!
-    quantity: Int
     category: ID!
   }
 
