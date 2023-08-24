@@ -4,9 +4,9 @@
       "lastName": "Westwood",
       "username": "vwestwood",
       "email": "vivienne@example.com",
-      "product_id": "61538a1f42fcbf001f6c3b5a",
       "password": "westwoodpass",
       "location": "London",
+      "products": [],
       "orders": []
     },
     {
@@ -14,9 +14,9 @@
       "lastName": "Kawakubo",
       "username": "rkawakubo",
       "email": "rei@example.com",
-      "product_id": "61538a1f42fcbf001f6c3b5b",
       "password": "kawakubopass",
       "location": "Tokyo",
+      "products": [],
       "orders": []
     },
     {
@@ -24,9 +24,9 @@
       "lastName": "McQueen",
       "username": "amcqueen",
       "email": "alexander@example.com",
-      "product_id": "61538a1f42fcbf001f6c3b5c",
       "password": "mcqueenpass",
       "location": "London",
+      "products": [],
       "orders": []
     }
   ]

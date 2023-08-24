@@ -9,16 +9,16 @@ const orderData = require('./orderData.json');
 
 db.once('open', async () => {
   // clean database
-  await User.deleteMany({});
-  await Category.deleteMany({});
-  await Product.deleteMany({});
-  await Order.deleteMany({});
+  // await User.deleteMany({});
+  // await Category.deleteMany({});
+  // await Product.deleteMany({});
+  // await Order.deleteMany({});
 
   // bulk create each model
-  const user = await User.insertMany(userData);
-  const category = await Category.insertMany(categoryData);
-  const product = await Product.insertMany(productData);
-  const order = await Order.insertMany(orderData);
+  // const user = await User.insertMany(userData);
+  // const category = await Category.insertMany(categoryData);
+  // const product = await Product.insertMany(productData);
+  // const order = await Order.insertMany(orderData);
 
   console.log('all done!');
   process.exit(0);

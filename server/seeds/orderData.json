@@ -1,20 +1,9 @@
 [
   {
     "purchaseDate": "2023-08-24T12:34:56Z",
-    "user": "61538a1f42fcbf001f6c3b51",
+    "user": "64e7352a9e81c04fda893581",
     "fulfilled": false,
-    "products": []
-  },
-  {
-    "purchaseDate": "2023-08-23T09:12:34Z",
-    "user": "61538a1f42fcbf001f6c3b52",
-    "fulfilled": true,
-    "products": []
-  },
-  {
-    "purchaseDate": "2023-08-22T18:45:23Z",
-    "user": "61538a1f42fcbf001f6c3b53",
-    "fulfilled": false,
-    "products": []
+    "products": ["64e735a14ff16d7fa0d61c29"]
   }
+  
 ]
