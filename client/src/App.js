@@ -4,13 +4,18 @@ import './App.css';
 import Feed from './pages/Feed';
 import Navbar from './components/Navbar';
 import './App.css'
+import { StoreProvider } from './utils/GlobalState';
+
 
 function App() {
   return (
+
     // <Router>
       <div>
         <Navbar />
-        <Feed />
+          <StoreProvider>
+            <Feed />
+          </StoreProvider>
         {/* <Routes>
           <Route path="/" element={<Feed />} />
         </Routes> */}

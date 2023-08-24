@@ -1,0 +1,2 @@
+export const QUERY_ALL_PRODUCTS = "QUERY_ALL_PRODUCTS";
+

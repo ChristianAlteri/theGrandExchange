@@ -1,6 +1,7 @@
 {
   "name": "the-grand-exchange",
   "version": "0.1.0",
+  "proxy": "http://localhost:3001",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.8.1",
@@ -11,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-player": "^2.12.0",
     "react-scripts": "5.0.1",
+    "reducer": "^0.19.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
