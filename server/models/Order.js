@@ -12,7 +12,7 @@ const orderSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    fulfiled: {
+    fulfilled: {
         type: Boolean,
         default: false,
     },
