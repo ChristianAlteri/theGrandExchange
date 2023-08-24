@@ -1,0 +1,29 @@
+[
+    {
+      "name": "Vivienne Westwood Corset",
+      "user_id": "61538a1f42fcbf001f6c3b51",
+      "description": "Iconic corset designed by Vivienne Westwood",
+      "image": "corset.jpg",
+      "price": 599.99,
+      "quantity": 20,
+      "category": "61538a1f42fcbf001f6c3b5d"
+    },
+    {
+      "name": "Comme des Garçons Dress",
+      "user_id": "61538a1f42fcbf001f6c3b52",
+      "description": "Avant-garde dress by Rei Kawakubo",
+      "image": "cdg_dress.jpg",
+      "price": 799.99,
+      "quantity": 10,
+      "category": "61538a1f42fcbf001f6c3b5e"
+    },
+    {
+      "name": "Alexander McQueen Skull Clutch",
+      "user_id": "61538a1f42fcbf001f6c3b53",
+      "description": "Signature skull clutch by Alexander McQueen",
+      "image": "skull_clutch.jpg",
+      "price": 899.99,
+      "quantity": 15,
+      "category": "61538a1f42fcbf001f6c3b5f"
+    }
+  ]
