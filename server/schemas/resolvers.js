@@ -202,8 +202,8 @@ const orderResolvers = {
 };
 
 const productResolvers = {
-  Product: {
-    user: async (product) => {
+  Query: {
+    getUser: async (product) => {
       try {
         const user = await User.findById(product.user_id);
         return user;
@@ -211,7 +211,7 @@ const productResolvers = {
         throw new Error('Error fetching user');
       }
     },
-    category: async (product) => {
+    getCategory: async (product) => {
       try {
         const category = await Category.findById(product.category);
         return category;
@@ -219,8 +219,6 @@ const productResolvers = {
         throw new Error('Error fetching category');
       }
     },
-  },
-  Query: {
     getProduct: async (_, { productId }) => {
       try {
         const product = await Product.findById(productId);

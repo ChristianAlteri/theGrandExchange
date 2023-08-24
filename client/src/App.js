@@ -1,20 +1,19 @@
-import React from 'react'; // Import React
-import logo from './Assets/exchangelogo.png';
+import React from 'react';
 import './App.css';
-import ReactPlayer from "react-player";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Feed from './pages/Feed';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
-      <div className="video-container">
-        <h1>The Grand Exchange <img src={logo} alt='logo' /></h1>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Feed />} />
+        </Routes>
       </div>
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=Rtp-Slp58GM"
-        playing={true}
-        volume={0.5}
-      />
-    </div>
+    </Router>
   );
 }
 
