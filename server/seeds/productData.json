@@ -6,6 +6,47 @@
       "image": "corset.jpg",
       "price": 599.99,
       "category": "64e7357834434387b5a02ad0"
+    },
+    {
+      "name": "Alexander McQueen Dress",
+      "user_id": "64e7352a9e81c04fda893581",
+      "description": "Elegant dress designed by Alexander McQueen",
+      "image": "mcqueen-dress.jpg",
+      "price": 799.99,
+      "category": "64e7357834434387b5a02ad2"
+    },
+    {
+      "name": "Maison Margiela Artisan Jacket",
+      "user_id": "64e7352a9e81c04fda893581",
+      "description": "Unique artisan jacket by Maison Margiela",
+      "image": "margiela-jacket.jpg",
+      "price": 1299.99,
+      "category": "64e7357834434387b5a02ad0"
+    },
+    {
+      "name": "Comme des Garçons Play Shirt",
+      "user_id": "64e7352a9e81c04fda893581",
+      "description": "Playful shirt from Comme des Garçons collection",
+      "image": "cdg-shirt.jpg",
+      "price": 249.99,
+      "category": "64e7357834434387b5a02ad1"
+    },
+    {
+      "name": "Jean Paul Gaultier Corset",
+      "user_id": "64e7352a9e81c04fda893581",
+      "description": "Iconic corset designed by Jean Paul Gaultier",
+      "image": "jpg-corset.jpg",
+      "price": 599.99,
+      "category": "64e7357834434387b5a02ad2"
+    },
+    {
+      "name": "Phoebe Philo Tote Bag",
+      "user_id": "64e7352a9e81c04fda893581",
+      "description": "Chic tote bag designed by Phoebe Philo",
+      "image": "phoebe-philo-bag.jpg",
+      "price": 449.99,
+      "category": "64e7357834434387b5a02ad1"
     }
     
 ]
+
