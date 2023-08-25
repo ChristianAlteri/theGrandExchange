@@ -28,10 +28,10 @@ const FilterCard = ({ onClose }) => {
                 "
                 >
                 Filter menu
-                    <div className="text-sm">item</div>
-                    <div className="text-sm" >item</div>
-                    <div className="text-sm">item</div>
-                    <div className="text-sm">item</div>
+                    <div className="text-sm" onClick={() => console.log("filter option")}>item</div>
+                    <div className="text-sm" onClick={() => console.log("filter option")}>item</div>
+                    <div className="text-sm" onClick={() => console.log("filter option")}>item</div>
+                    <div className="text-sm" onClick={() => console.log("filter option")}>item</div>
             </div>
             
             <button

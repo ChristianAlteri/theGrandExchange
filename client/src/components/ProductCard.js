@@ -25,6 +25,7 @@ const ProductCard = ({ product }) => {
       rounded-lg
       overflow-hidden
       "
+    onClick={() => console.log(product.name)}
     >
         <div 
             className="
