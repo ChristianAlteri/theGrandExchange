@@ -1,78 +1,108 @@
 import React, { useState } from 'react';
 import { CiMenuBurger, CiUser } from "react-icons/ci";
+import AnyBrandBar from './AnyBrandBar';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isBrandOpen, setIsBrandOpen] = useState(false);
 
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     };
+    
+    const handleBrandToggle = () => {
+        setIsBrandOpen(!isBrandOpen);
+    }
 
     return ( 
         <div className="
-            flex 
-            justify-between 
-            items-center 
-            p-4"
-        >
-            <div className="
-                text-lg 
-                font-semibold 
-                hover:text-blue-500 
-                transition" 
-                    onClick={() => console.log('Logo clicked!')} 
-                >
-                Logo here 
-            </div>
-            <div className="
-                text-lg 
-                font-semibold 
-                hover:text-blue-500 
-                transition
-                border 
-                border-black-800 
-                p-2
-                rounded-lg
-                " 
-                    onClick={() => console.log('Middle button clicked!')} 
-                >
-                Switch up
-            </div>
-            <div 
-                onClick={toggleOpen}
-                className="
-                p-4
-                md:py-1
-                md:px-2
-                border-[1px]
-                border-neutral-200
-                flex
-                flex-row
-                items-center
-                gap-3
-                rounded-full
-                cursor-pointer
-                hover:shadow-md
-                transition
-                "
+        flex 
+        justify-between 
+        items-center 
+        p-4"
+    >
+        <div className="
+            text-lg 
+            font-semibold 
+            hover:text-blue-500 
+            transition" 
+                onClick={() => console.log('Logo clicked!')} 
             >
-                <CiMenuBurger className=" h-5 w-6" />
-                <CiUser className=" h-5 w-6" />
-            </div>
-            {isOpen && (
-                <div className="
-                    absolute 
-                    rounded-xl 
-                    shadow-md 
-                    w-1/6 
-                    bg-white 
-                    overflow-hidden 
-                    right-0 
-                    top-14
-                    text-sm
-                    
-                    "
-                    > 
+            Logo here 
+        </div>
+        <div className="
+            flex
+            flex-row
+            justify-center
+            items-center
+            space-x-6
+
+        ">
+            <div className="
+                text-sm
+                font-semibold
+                flex
+                items-center
+                justify-center
+                ">
+                <div
+                    className="cursor-pointer"
+                    onClick={handleBrandToggle}
+                >
+                    Any Brand 
+                </div>
+                {isOpen && (
+                    <div className="mt-1">
+                        <AnyBrandBar />
+                    </div>
+                )}
+                </div>
+            <div className="
+                text-sm
+                font-semibold
+                flex
+                items-center
+                justify-center
+                border-l
+                pl-6
+            ">
+                Any Seller
+            </div>   
+        </div>
+        <div 
+            onClick={toggleOpen}
+            className="
+            p-4
+            md:py-1
+            sm:py-2
+            md:px-2
+            border-[1px]
+            border-neutral-200
+            flex
+            items-center
+            gap-3
+            rounded-full
+            cursor-pointer
+            hover:shadow-md
+            transition
+            "
+        >
+            <CiMenuBurger className="h-5 w-6" />
+            <CiUser className="h-5 w-6" />
+        </div>
+        {isOpen && (
+            <div className="
+                absolute 
+                rounded-xl 
+                shadow-md 
+                w-1/6 
+                bg-white 
+                overflow-hidden 
+                right-0 
+                top-14
+                text-sm
+            "
+            > 
                 <div className="
                     flex 
                     flex-col 
