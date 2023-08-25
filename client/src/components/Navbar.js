@@ -24,7 +24,7 @@ const Navbar = () => {
                 transition" 
                     onClick={() => console.log('Middle button clicked!')} 
                 >
-                Middle button
+                Switch up
             </div>
             <div className="
                 text-lg 

@@ -2,13 +2,13 @@ import React from "react";
 
 const ProductCard = ({ product }) => {
   const {
-    _id,
+    // _id,
     name,
-    user_id,
+    // user_id,
     description,
     image,
     price,
-    category
+    // category
   } = product;
 
   return (
@@ -23,14 +23,61 @@ const ProductCard = ({ product }) => {
       m-4
       p-4
       rounded-lg
-      overflow-hidden"
+      overflow-hidden
+      "
     >
-      <div className="text-lg font-semibold">{name}</div>
-      <div className="text-sm text-gray-600 mt-2">{description}</div>
-      <div className="mt-4">
-        <img src={image} alt={name} className="w-full h-auto" />
-      </div>
-      <div className="mt-4 text-lg font-bold text-blue-600">${price}</div>
+        <div 
+            className="
+            text-lg 
+            font-semibold
+            "
+            >
+            {name}
+        </div>
+        <div 
+            className="
+            text-sm 
+            text-gray-600 
+            mt-2"
+            >
+                {description}
+            </div>
+        <div className="mt-4">
+            <img 
+                src={image} 
+                alt={name} 
+                className="w-full h-auto" 
+                />
+        </div>
+        <div 
+            className="
+            mt-4 
+            text-lg 
+            font-bold 
+            text-blue-600
+            flex 
+            justify-between 
+            items-center
+            "
+            >   
+                ${price}
+        <button 
+                className="
+                bg-gray-100 
+                text-blue 
+                py-1
+                px-1
+                rounded-md 
+                shadow-md
+                text-sm
+                "
+            
+            onClick={() => console.log("Apply add to cart")}
+            >
+                Buy now
+            </button>
+        </div>
+        
     </div>
   );
 };
