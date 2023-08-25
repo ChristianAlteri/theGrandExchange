@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import FilterCard from './FilterCard';
+import { CiBoxList } from 'react-icons/ci';
+import { IoImagesOutline } from "react-icons/io5";
+
 
 const CategoryBar = () => {
     const [showModal, setShowModal] = useState(false);
@@ -14,52 +17,99 @@ const CategoryBar = () => {
             justify-between 
             items-center 
             p-4 
-            md:flex-row 
-            sm:flex-row 
-            lg:flex-row 
-            xl:flex-row 
-            flex-col 
-            md:items-center
-        ">
+            flex row
+            border-t
+            "
+            >
             <div className="
                 flex 
                 flex-row 
                 space-x-2
-            ">
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
-                <div className="text-gray-500 text-sm">
-                    icon
-                </div>
+                flex
+                justify-between
+                "
+                >
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    >
+                    <IoImagesOutline />
+                        skirts
+                    </div>
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    >
+                    <IoImagesOutline />
+                        tops
+                    </div>
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    >
+                    <IoImagesOutline />
+                        minis
+                    </div>
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    >
+                    <IoImagesOutline />
+                        jeans
+                    </div>
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    >
+                    <IoImagesOutline />
+                        blouse
+                    </div>
+                    <div className="
+                    text-gray-500 
+                    text-sm
+                    hover:cursor-pointer
+                    "
+                    onClick={() => console.log("category clicked")}
+                    > 
+                    <IoImagesOutline />
+                        jacket
+                    </div>
+                
             </div>
 
             <button
                 className="
-                    text-xl 
+                    text-l 
                     rounded-lg 
                     border 
                     border-gray-300 
-                    shadow 
                     px-3 
-                    py-1
+                    py-2
+                    flex
+                    items-center 
+                    justify-between 
                 "
                 onClick={toggleModal}
             >
-                Filter
+                <CiBoxList className=" h-6 w-6 mr-1 " /> 
+                <span className="ml-1">Filter</span> 
             </button>
+
 
             {showModal && (
                 <div className="
