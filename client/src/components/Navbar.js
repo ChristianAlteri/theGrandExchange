@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CiMenuBurger, CiUser } from "react-icons/ci";
 import AnyBrandBar from './AnyBrandBar';
+import sitelogo from '../assets/sitelogo.svg'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,8 @@ const Navbar = () => {
         flex 
         justify-between 
         items-center 
-        p-4"
+        p-4
+        bg-blue"
     >
         <div className="
             text-lg 
@@ -28,7 +30,7 @@ const Navbar = () => {
             transition" 
                 onClick={() => console.log('Logo clicked!')} 
             >
-            Logo here 
+            <img src={sitelogo} alt="logo" />
         </div>
         <div className="
             flex

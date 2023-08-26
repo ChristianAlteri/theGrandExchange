@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const Order = require('./Order');
 const Product = require('./Product');
 

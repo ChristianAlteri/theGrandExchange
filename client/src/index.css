@@ -2,3 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define Project Fonts */
+
+@font-face {
+    font-family: 'PP Mori';
+    src: url('../src/assets/fonts/PPMori-ExtraBold.woff2') format('woff2'),
+         url('../src/assets/fonts/PPMori-ExtraBold.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'PP Mori';
+    src: url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff2') format('woff2'),
+          url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+  }
+  
+  
+  @font-face {
+    font-family: 'PP Mori';
+    src: url('../src/assets/fonts/PPMori-Regular.woff2') format('woff2'),
+          url('../src/assets/fonts/PPMori-Regular.woff') format('woff');
+  }
+
+  @layer components {
+    .btn-style {
+        border: 2px solid #000;
+        border-radius: 25px;
+        background-color: #fff;
+        font-family: 'PP Mori', sans-serif;
+    }
+  }
