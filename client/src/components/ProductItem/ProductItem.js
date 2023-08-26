@@ -1,5 +1,5 @@
 import React from "react";
-import testimg from "../../assets/testimg.jpg";
+import testimg from "../../Assets/sitelogo.svg";
 
 
 const productItem = (props) => {

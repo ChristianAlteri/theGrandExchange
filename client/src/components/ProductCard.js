@@ -28,8 +28,7 @@ const ProductCard = ({ product }) => {
     onClick={() => console.log(product.name)}
     >
         <div 
-            className="
-            text-lg 
+            className=" 
             font-semibold
             "
             >
@@ -53,7 +52,6 @@ const ProductCard = ({ product }) => {
         <div 
             className="
             mt-4 
-            text-lg 
             font-bold 
             text-blue-600
             flex 
@@ -70,7 +68,7 @@ const ProductCard = ({ product }) => {
                 px-1
                 rounded-md 
                 shadow-md
-                text-sm
+
                 "
             
             onClick={() => console.log("Apply add to cart")}
