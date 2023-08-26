@@ -5,6 +5,7 @@ import Feed from './pages/Feed';
 import Navbar from './components/Navbar';
 import './App.css'
 import { StoreProvider } from './utils/GlobalState';
+import CategoryBar from './components/CategoryBar';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     // <Router>
       <div>
         <Navbar />
+        <CategoryBar/>
           <StoreProvider>
             <Feed />
           </StoreProvider>
