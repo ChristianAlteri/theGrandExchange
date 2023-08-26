@@ -2,7 +2,7 @@ const Category = require('../models/Category');
 const Order = require('../models/Order');
 const User = require('../models/User');
 const Product = require('../models/Product');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { AuthenticationError } = require('apollo-server');
 
@@ -18,7 +18,7 @@ const userResolvers = {
     },
     isCorrectPassword: async (user, { password }) => {
       try {
-        return await bcrypt.compare(password, user.password);
+        return await bcryptjs.compare(password, user.password);
       } catch (error) {
         throw new Error('Error comparing passwords');
       }

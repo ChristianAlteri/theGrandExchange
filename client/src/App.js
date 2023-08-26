@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import './App.css'
 import { StoreProvider } from './utils/GlobalState';
 import CategoryBar from './components/CategoryBar';
+import Test from './pages/Test';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Navbar />
         <CategoryBar/>
+        < Test />
           <StoreProvider>
             <Feed />
           </StoreProvider>
