@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import { CiMenuBurger, CiUser } from "react-icons/ci";
-import AnyBrandBar from './AnyBrandBar';
+
 import sitelogo from '../Assets/sitelogo.svg';
 
-const Navbar = (onAnyBrandClick) => {
+import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
+import AnySellerButton from './MiddleNavButton/AnySellerButton';
+
+
+const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isBrandOpen, setIsBrandOpen] = useState(false);
+    ;
 
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     };
     
-    const handleBrandToggle = () => {
-        setIsBrandOpen(!isBrandOpen);
-    }
-
 
     return (
         <div className="
@@ -34,50 +34,19 @@ const Navbar = (onAnyBrandClick) => {
             >
                 <img src={sitelogo} alt="logo" />
             </div>
-                {/* ANY button container */}
-                <div className="
-                flex
-                flex-row
-                justify-center
-                items-center
-                space-x-6
-                    "
-                    onClick={() => console.log('clicked!')}
-                >
-                    {/* Any brand */}
-                    <div className="
-                        text-sm
-                        font-semibold
+                    {/* Middle button */}
+                    <div 
+                        className="
                         flex
-                        items-center
+                        flex-row
                         justify-center
-                        ">
-                        <div
-                            className="cursor-pointer"
-                            onClick={handleBrandToggle}
-                        >
-                            Any Brand 
-                        </div>
-                        {isOpen && (
-                            <div className="mt-1">
-                                <AnyBrandBar />
-                            </div>
-                        )}
+                        items-center
+                        space-x-6
 
-                        {/* Any seller */}
-                        </div>
-                            <div className="
-                                text-sm
-                                font-semibold
-                                flex
-                                items-center
-                                justify-center
-                                border-l
-                                pl-6
-                            ">
-                                Any Seller
-                            </div>   
-                        </div>
+                        ">
+                        <AnyBrandButton />
+                        <AnySellerButton />
+                    </div>
                 {/* Login button */}
                 <div 
                     onClick={toggleOpen}
