@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'; 
+
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
@@ -10,17 +12,19 @@ function Signup(props) {
 
     const handleFormSubmit = async event => {
         event.preventDefault();
-        const mutatiionResponse = await addUser({
+        const mutationResponse = await addUser({
             variables: {
                 emails: formState.email, 
                 password: formState.password,
                 firstname: formState.firstName,
                 lastname: formState.lastName,
-                dateOfBirth: formState.dateOfBirth,
+                username: formState.userName,
+                // Get location from browser
                 location: formState.location,
+
             },
         });
-        const token = mutatiionResponse.data.addUser.token;
+        const token = mutationResponse.data.addUser.token;
         Auth.login(token);
     };
 
@@ -32,16 +36,21 @@ function Signup(props) {
         });
       };
 
-return (
-    <div className="container my-1">
-      {/* <Link to="/login">← Go to Login</Link> */}
+      const navigate = useNavigate(); 
 
-      <h2>Signup</h2>
+      const handleLoginClick = () => {
+        navigate('/login'); 
+      };
+
+return (
+  
+
+    <div className="flex justify-center ">
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label htmlFor="firstName">First Name:</label>
           <input
-            placeholder="First"
+            placeholder=" Lee"
             name="firstName"
             type="firstName"
             id="firstName"
@@ -51,7 +60,7 @@ return (
         <div className="flex-row space-between my-2">
           <label htmlFor="lastName">Last Name:</label>
           <input
-            placeholder="Last"
+            placeholder=" Mcqueen"
             name="lastName"
             type="lastName"
             id="lastName"
@@ -59,9 +68,19 @@ return (
           />
         </div>
         <div className="flex-row space-between my-2">
+          <label htmlFor="userName">Username:</label>
+          <input
+            placeholder=" voss-1"
+            name="userName"
+            type="userName"
+            id="userName"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
           <input
-            placeholder="youremail@test.com"
+            placeholder=" mcqueen@gmail.com"
             name="email"
             type="email"
             id="email"
@@ -71,38 +90,26 @@ return (
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
-            placeholder="******"
+            placeholder="********"
             name="password"
             type="password"
             id="pwd"
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Date Of Birth</label>
-          <input
-            placeholder="dd/mm/yy"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">location</label>
-          <input
-            placeholder="Western Australia"
-            name="password"
-            type="password"
-            id="pwd"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="flex-row flex-end">
+        <div className="text-center">
           <button type="submit">Submit</button>
         </div>
+        <button
+          className="my-4 text-center font-bold hover:text-blue-500 hover:cursor-pointer "
+          onClick={handleLoginClick}
+        >
+          Already have an account?
+        </button>
+
       </form>
     </div>
+
   );
 }
 

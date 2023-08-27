@@ -2,15 +2,16 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import './App.css'
-import { StoreProvider } from './utils/GlobalState';
 import CategoryBar from './components/CategoryBar';
+import Footer from './components/Footer';
+import './App.css'
 
 // import Test from './pages/Test';
 
 import Test from './pages/Test';
 import Feed from './pages/Feed';
 import Signup from './pages/Signup';
+import Login from './pages/Login';
 
 
 import {
@@ -20,6 +21,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import SellWithUs from './pages/SellWithUs';
+import Cart from './pages/Cart';
 
 // New Apollo Client config
 
@@ -51,18 +54,36 @@ const client = new ApolloClient({
 
 function App() {
   return (
-
     <Router>
       <div>
-        <Navbar />
-        <CategoryBar/>
-          <Route path="/" element={<Feed />} />
-          <Route path="/feed" element={<Feed />} />
-          {/* <Route path="/store" element={<Storefront />} /> */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <CategoryBar />
+                <Feed />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/feed"
+            element={
+              <>
+                <Navbar />
+                <CategoryBar />
+                <Feed />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/test" element={<Test />} />
           <Route path="/signup" element={<Signup />} />
-          {/* <Route path="/profile" element={<Profile />} />
-          <Route path='./products/:id' element={<ProductDetail />} /> */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/sell" element={<SellWithUs />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </Router>
