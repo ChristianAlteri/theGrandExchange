@@ -14,26 +14,23 @@ const CategoryBar = () => {
     return (
         <div className="
             flex 
+            
             justify-between 
             items-center 
             p-4 
-            flex row
             border-t
-            "
-            >
+        ">
             <div className="
                 flex 
-                flex-row 
                 space-x-2
-                flex
-                justify-between
-                "
-                >
-                    <div className="
+            ">
+                <div className="
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     >
                     <IoImagesOutline />
@@ -43,7 +40,9 @@ const CategoryBar = () => {
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     >
                     <IoImagesOutline />
@@ -53,7 +52,9 @@ const CategoryBar = () => {
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     >
                     <IoImagesOutline />
@@ -63,7 +64,9 @@ const CategoryBar = () => {
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     >
                     <IoImagesOutline />
@@ -73,7 +76,9 @@ const CategoryBar = () => {
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     >
                     <IoImagesOutline />
@@ -83,7 +88,9 @@ const CategoryBar = () => {
                     text-gray-500 
                     text-sm
                     hover:cursor-pointer
-                    "
+                    flex
+                    items-center
+                "
                     onClick={() => console.log("category clicked")}
                     > 
                     <IoImagesOutline />
