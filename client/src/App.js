@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import './App.css'
 import { StoreProvider } from './utils/GlobalState';
 import CategoryBar from './components/CategoryBar';
+
+// import Test from './pages/Test';
+
 import Test from './pages/Test';
 import Feed from './pages/Feed';
 import Signup from './pages/Signup';
@@ -43,6 +46,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 // Root App
 
 function App() {
@@ -52,7 +56,6 @@ function App() {
       <div>
         <Navbar />
         <CategoryBar/>
-        <Routes>
           <Route path="/" element={<Feed />} />
           <Route path="/feed" element={<Feed />} />
           {/* <Route path="/store" element={<Storefront />} /> */}
