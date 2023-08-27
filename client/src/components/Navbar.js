@@ -83,6 +83,7 @@ const Navbar = () => {
                         text-sm
                     "
                     > 
+                    {/* Login */}
                         <div className="
                             flex 
                             flex-col 
