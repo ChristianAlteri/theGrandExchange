@@ -1,6 +1,6 @@
 import React from 'react';
 
-import sitelogo from '../Assets/sitelogo.svg';
+import sitelogo from '../../Assets/sitelogo.svg'
 
 import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
 import AnySellerButton from './MiddleNavButton/AnySellerButton';
