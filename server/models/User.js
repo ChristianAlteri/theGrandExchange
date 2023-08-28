@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const bcryptjs = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const Order = require('./Order');
 const Product = require('./Product');
 
@@ -16,7 +16,7 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
-  username: {
+  userName: {
     type: String,
     required: true,
     unique: true
@@ -35,7 +35,12 @@ const userSchema = new Schema({
     type: String,
     required: true,
     trim: true
-},
+  },
+  dateOfBirth: {
+    type: String,
+    required: true,
+    trim: true
+  },
   orders: [Order.schema],
   products: [Product.schema]
 });
