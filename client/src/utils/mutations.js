@@ -24,3 +24,25 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+
+export const CREATE_ORDER_WITH_PRODUCTS = gql`
+  mutation CreateOrderWithProducts($input: OrderInput!) {
+    createOrder(input: $input) {
+      _id
+      purchaseDate
+      user {
+        _id
+        firstName
+        lastName
+        email
+      }
+      fulfilled
+      products {
+        _id
+        name
+        price
+      }
+    }
+  }
+`;

@@ -1,21 +1,37 @@
 import React from 'react';
-import { CiShoppingCart } from 'react-icons/ci';
-import { useNavigate } from 'react-router-dom';
+import { QUERY_ORDERS, QUERY_ORDERS_WITH_PRODUCTS } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+import CartItem from '../components/Footer/Cart/CarItem';
+import Navbar from '../components/Nav/Navbar';
 
 const Cart = () => {
-    const navigate = useNavigate();
-
-    const handleCartClick = () => {
-        navigate('/cart');
-    };
-
+    // const { loading, data } = useQuery(QUERY_ORDERS);
+    const { loading, data } = useQuery(QUERY_ORDERS_WITH_PRODUCTS);
+    
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+    
+    const allOrders = data.getAllOrders; // Corrected access
+    console.log(allOrders);
+    
     return (
-        <div className="p-2" onClick={handleCartClick}>
-            <span style={{ fontSize: '30px' }}>
-                <CiShoppingCart className='hover:cursor-pointer'/>
-            </span>
+      <>
+        <Navbar />  
+        <div className="p-8">
+            <div className="flex flex-wrap">
+            {allOrders.map(order => (
+                <div key={order._id} >
+                {order.products.map(product => (
+                    <CartItem key={product._id} product={product}/>
+                ))}
+                </div>
+            ))}
+            </div>
         </div>
+      </>
     );
 };
+  
 
 export default Cart;
