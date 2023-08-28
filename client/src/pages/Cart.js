@@ -7,6 +7,7 @@ import Navbar from '../components/Nav/Navbar';
 const Cart = () => {
     // const { loading, data } = useQuery(QUERY_ORDERS);
     const { loading, data } = useQuery(QUERY_ORDERS_WITH_PRODUCTS);
+
     
     if (loading) {
         return <p>Loading...</p>;
@@ -23,7 +24,7 @@ const Cart = () => {
             {allOrders.map(order => (
                 <div key={order._id} >
                 {order.products.map(product => (
-                    <CartItem key={product._id} product={product}/>
+                    <CartItem key={product._id} product={product} />
                 ))}
                 </div>
             ))}

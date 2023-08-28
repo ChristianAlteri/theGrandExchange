@@ -12,9 +12,9 @@ const AddToCartButton = ({ product }) => {
     console.log("Product ID: " ,productId);
     const input = {
       purchaseDate: purchaseDate,
-      user: product.user_id,
+      // user: user.user_id,
       fulfilled: false,
-      productIds: [product._id],
+      productIds: [productId],
     };
 
     try {
