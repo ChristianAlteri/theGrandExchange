@@ -47,21 +47,19 @@ export const QUERY_PRODUCTS_BY_IDS = gql`
 
 
 export const QUERY_ORDERS_WITH_PRODUCTS = gql`
-  query GetAllOrdersWithProducts {
-    getAllOrders {
+  query GetAllOrders {
+  getAllOrders {
+    _id
+    purchaseDate
+    user {
       _id
-      purchaseDate
-      user {
-        _id
-      }
-      fulfilled
-      products {
-        _id
-        product {
-          _id
-          name
-        }
-      }
+    }
+    fulfilled
+    products {
+      _id
+      name
     }
   }
+}
 `;
+

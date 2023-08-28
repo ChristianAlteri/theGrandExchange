@@ -1,14 +1,15 @@
 import React from "react";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ product }) => {
   const {
-    // _id,
+    _id,
     name,
-    // user_id,
+    user_id,
     description,
     image,
     price,
-    // category
+    category
   } = product;
 
   return (
@@ -60,21 +61,9 @@ const ProductCard = ({ product }) => {
             "
             >   
                 ${price}
-        <button 
-                className="
-                bg-gray-100 
-                text-blue 
-                py-1
-                px-1
-                rounded-md 
-                shadow-md
 
-                "
-            
-            onClick={() => console.log("Apply add to cart")}
-            >
-                Buy now
-            </button>
+            <AddToCartButton product={product} />
+
         </div>
         
     </div>

@@ -5,10 +5,17 @@ import sitelogo from '../../Assets/sitelogo.svg'
 import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
 import AnySellerButton from './MiddleNavButton/AnySellerButton';
 import HamburgerMenuNav from './HamburgerMenuNav';
+import { useNavigate } from 'react-router-dom';
 
 
 const Navbar = () => {
  
+    const navigate = useNavigate();
+
+    const handleLogoClick = () => {
+        navigate('/feed');
+    };
+
     
     return (
         <div className="
@@ -22,9 +29,9 @@ const Navbar = () => {
             <div className="
                 text-lg 
                 font-semibold 
-                hover:text-blue-500 
+                hover:cursor-pointer
                 transition" 
-                onClick={() => console.log('Logo clicked!')} 
+                onClick={(handleLogoClick)} 
             >
                 <img src={sitelogo} alt="logo" />
             </div>
