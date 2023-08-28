@@ -174,11 +174,15 @@ const orderResolvers = {
     },
   },
   Mutation: {
-    createOrder: async (_, { input }) => {
+    createOrder: async (_,  { input }, context) => {
       console.log("HEREEEEEEEEE", input);
+      // Use context.req.user
 
       try {
-        const order = await Order.create(input);
+        const order = await Order.create({
+          user: context.user._id,
+          ...input
+        });
         return order;
       } catch (error) {
         throw new Error('Error creating order');
