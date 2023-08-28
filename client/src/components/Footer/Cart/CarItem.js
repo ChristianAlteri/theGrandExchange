@@ -1,6 +1,4 @@
 import React from "react";
-import { QUERY_PRODUCTS_BY_IDS } from "../../../utils/queries";
-import { useQuery } from "@apollo/client";
 import { AiOutlineClose } from "react-icons/ai";
 
 const CartItem = ({ product }) => {

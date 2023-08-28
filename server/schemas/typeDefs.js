@@ -46,9 +46,9 @@ const typeDefs = gql`
 
   input OrderInput {
     purchaseDate: String
-    user: ID!
+    # user: ID!
     fulfilled: Boolean
-    productIds: [ID]
+    products: [ID]
   }
 
   input ProductInput {
