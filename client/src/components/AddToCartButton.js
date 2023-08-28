@@ -7,9 +7,11 @@ const AddToCartButton = ({ product }) => {
 
 
   const handleCreateOrder = async () => {
-    console.log("Entering handleCreateOrder");
+    const purchaseDate = dayjs().format("YYYY-MM-DD HH:mm:ss");
+    const productId = product._id.toString()
+    console.log("Product ID: " ,productId);
     const input = {
-      purchaseDate: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+      purchaseDate: purchaseDate,
       user: product.user_id,
       fulfilled: false,
       productIds: [product._id],
@@ -18,7 +20,6 @@ const AddToCartButton = ({ product }) => {
     try {
       const { data } = await createOrder({ variables: { input } });
       console.log("Created order:", data.createOrder);
-      console.log({data});
     } catch (error) {
         if (error.networkError) {
           console.error("Network error:", error.networkError);
