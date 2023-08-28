@@ -17,6 +17,43 @@ import Cart from './pages/Cart';
 import SellWithUs from './pages/SellWithUs';
 
 
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
+// New Apollo Client config
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+// Authentication
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+// Client apollo connection
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+
+// Root App
+
 function App() {
   return (
     <Router>

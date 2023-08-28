@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CiMenuBurger, CiUser } from "react-icons/ci";
 import AnyBrandBar from './AnyBrandBar';
-import sitelogo from '../assets/sitelogo.svg'
+import sitelogo from './assets/sitelogo.svg'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {

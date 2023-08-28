@@ -44,10 +44,12 @@ const userResolvers = {
   },
   Mutation: {
     createUser: async (_, { input }) => {
+      console.log("HEREEEEEEEEE", input);
       try {
         const user = await User.create(input);
         return user;
       } catch (error) {
+        console.log(error)
         throw new Error('Error creating user');
       }
     },

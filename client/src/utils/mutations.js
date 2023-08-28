@@ -1,30 +1,17 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
-  mutation addUser(
-    $firstName: String!
-    $lastName: String!
-    $email: String!
-    $password: String!
-    $dateOfBirth: String!
-    $location: String!
-  ) {
-    addUser(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-      dateOfBirth: $dateOfBirth
-      location: $location
-    ) {
-      token
-      user {
-        _id
-      }
+  mutation CreateUser($input: UserInput!) {
+    createUser(input: $input) {
+      userName
+      firstName
+      lastName
+      email
+      location
+      dateOfBirth
     }
   }
 `;
-
 
 export const CREATE_ORDER_WITH_PRODUCTS = gql`
   mutation CreateOrderWithProducts($input: OrderInput!) {
