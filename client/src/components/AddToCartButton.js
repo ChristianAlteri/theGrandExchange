@@ -10,7 +10,7 @@ const AddToCartButton = ({ product }) => {
     console.log("Entering handleCreateOrder");
     const input = {
       purchaseDate: dayjs().format("YYYY-MM-DD HH:mm:ss"),
-      user_id: product.user_id,
+      user: product.user_id,
       fulfilled: false,
       productIds: [product._id],
     };

@@ -175,6 +175,8 @@ const orderResolvers = {
   },
   Mutation: {
     createOrder: async (_, { input }) => {
+      console.log("HEREEEEEEEEE", input);
+
       try {
         const order = await Order.create(input);
         return order;
@@ -268,7 +270,9 @@ const resolvers = [
   userResolvers,
   categoryResolvers,
   orderResolvers,
-  productResolvers,
+  productResolvers
 ];
 
-module.exports = resolvers;
+module.exports = resolvers
+
+
