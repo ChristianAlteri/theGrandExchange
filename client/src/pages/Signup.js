@@ -14,12 +14,13 @@ function Signup(props) {
         event.preventDefault();
         const mutationResponse = await addUser({
             variables: {
-                emails: formState.email, 
+                email: formState.email, 
                 password: formState.password,
-                firstname: formState.firstName,
-                lastname: formState.lastName,
-                username: formState.userName,
-                // Get location from browser
+                firstName: formState.firstName,
+                lastName: formState.lastName,
+                userName: formState.userName,
+                dateOfBirth: formState.dateOfBirth,
+                // Get location from browser??
                 location: formState.location,
 
             },
@@ -88,6 +89,26 @@ return (
           />
         </div>
         <div className="flex-row space-between my-2">
+          <label htmlFor="DOB">Date Of Birth</label>
+          <input
+            placeholder="********"
+            name="dateOfBi"
+            type="date"
+            id="DOB"
+            onChange={handleChange}
+          />
+          </div>
+        <div className="flex-row space-between my-2">
+          <label htmlFor="Location">Location</label>
+          <input
+            placeholder="Western Australia"
+            name="location"
+            type="location"
+            id="location"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
             placeholder="********"
@@ -106,7 +127,6 @@ return (
         >
           Already have an account?
         </button>
-
       </form>
     </div>
 

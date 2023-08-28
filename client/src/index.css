@@ -6,16 +6,16 @@
 
 @font-face {
     font-family: 'PP Mori';
-    src: url('../src/Assets/fonts/PPMori-ExtraBold.woff2') format('woff2'),
-         url('../src/Assets/fonts/PPMori-ExtraBold.woff') format('woff');
+    src: url('../src/assets/fonts/PPMori-ExtraBold.woff2') format('woff2'),
+         url('../src/assets/fonts/PPMori-ExtraBold.woff') format('woff');
     font-weight: 900;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'PP Mori';
-    src: url('../src/Assets/fonts/PPMori-ExtraBoldItalic.woff2') format('woff2'),
-          url('../src/Assets/fonts/PPMori-ExtraBoldItalic.woff') format('woff');
+    src: url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff2') format('woff2'),
+          url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff') format('woff');
     font-weight: 900;
     font-style: normal;
   }
@@ -23,8 +23,8 @@
   
   @font-face {
     font-family: 'PP Mori';
-    src: url('../src/Assets/fonts/PPMori-Regular.woff2') format('woff2'),
-          url('../src/Assets/fonts/PPMori-Regular.woff') format('woff');
+    src: url('../src/assets/fonts/PPMori-Regular.woff2') format('woff2'),
+          url('../src/assets/fonts/PPMori-Regular.woff') format('woff');
   }
 
   @layer components {

@@ -28,7 +28,7 @@ const typeDefs = gql`
     _id: ID!
     firstName: String!
     lastName: String!
-    username: String!
+    userName: String!
     email: String!
     location: String!
     products: [Product]
