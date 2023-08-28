@@ -13,6 +13,7 @@ const AddToCartButton = ({ product }) => {
     const input = {
       purchaseDate: purchaseDate,
       // user: user.user_id,
+      user: "64e7352a9e81c04fda893581", //hardcode for dev
       fulfilled: false,
       productIds: [productId],
     };
