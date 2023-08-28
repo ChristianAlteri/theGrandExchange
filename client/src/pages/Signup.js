@@ -1,51 +1,50 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from "react-router-dom";
 
-import { ADD_USER } from '../utils/mutations';
-import Auth from '../utils/auth';
-import { useMutation } from '@apollo/client';
+import { ADD_USER } from "../utils/mutations";
+import Auth from "../utils/auth";
+import { useMutation } from "@apollo/client";
 
 function Signup(props) {
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [createUser] = useMutation(ADD_USER);
 
-    const [formState, setFormState] = useState({ email: '', password: '' });
-    const [addUser, { error, data }] = useMutation(ADD_USER);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    const mutationResponse = await createUser({
+      variables: {
+        input: {
+          email: formState.email,
+          password: formState.password,
+          firstName: formState.firstName,
+          lastName: formState.lastName,
+          userName: formState.userName,
+          dateOfBirth: formState.dateOfBirth,
+          // Get location from browser??
+          location: formState.location,
+        },
+      },
+    });
+    // const token = mutationResponse.data.addUser.token;
+    // Auth.login(token);
+  };
 
-    const handleFormSubmit = async event => {
-        event.preventDefault();
-        const mutationResponse = await addUser({
-            variables: {
-                email: formState.email, 
-                password: formState.password,
-                firstName: formState.firstName,
-                lastName: formState.lastName,
-                userName: formState.userName,
-                dateOfBirth: formState.dateOfBirth,
-                // Get location from browser??
-                location: formState.location,
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
 
-            },
-        });
-        const token = mutationResponse.data.addUser.token;
-        Auth.login(token);
-    };
+  const navigate = useNavigate();
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormState({
-          ...formState,
-          [name]: value,
-        });
-      };
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
 
-      const navigate = useNavigate(); 
-
-      const handleLoginClick = () => {
-        navigate('/login'); 
-      };
-
-return (
-  
-
+  return (
     <div className="flex justify-center ">
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
@@ -92,12 +91,12 @@ return (
           <label htmlFor="DOB">Date Of Birth</label>
           <input
             placeholder="********"
-            name="dateOfBi"
+            name="dateOfBirth"
             type="date"
             id="DOB"
             onChange={handleChange}
           />
-          </div>
+        </div>
         <div className="flex-row space-between my-2">
           <label htmlFor="Location">Location</label>
           <input
@@ -129,7 +128,6 @@ return (
         </button>
       </form>
     </div>
-
   );
 }
 

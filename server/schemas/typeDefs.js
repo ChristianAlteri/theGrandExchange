@@ -63,9 +63,9 @@ const typeDefs = gql`
   input UserInput {
     firstName: String!
     lastName: String!
-    username: String!
+    userName: String!
     email: String!
-    product_id: ID!
+    dateOfBirth: String!
     password: String!
     location: String!
   }
