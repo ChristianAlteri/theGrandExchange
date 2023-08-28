@@ -13,11 +13,11 @@ const Feed = () => {
   return (
     <div className="p-8">
       <div className="flex flex-wrap">
-        {data.getAllProducts.map(product => (
+        {/* {data.getAllProducts.map(product => (
           <ProductCard 
             key={product._id} 
             product={product} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
