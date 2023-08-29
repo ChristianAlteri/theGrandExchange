@@ -259,6 +259,7 @@ const productResolvers = {
         const product = await Product.create(input);
         return product;
       } catch (error) {
+        console.log(error);
         throw new Error("Error creating product");
       }
     },

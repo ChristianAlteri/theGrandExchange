@@ -45,3 +45,17 @@ export const CREATE_ORDER_WITH_PRODUCTS = gql`
     }
   }
 `;
+
+
+export const CREATE_PRODUCT = gql`
+  mutation CreateProduct($input: ProductInput!) {
+    createProduct(input: $input) {
+      name
+      user_id
+      description
+      image
+      price
+      category
+    }
+  }
+`;

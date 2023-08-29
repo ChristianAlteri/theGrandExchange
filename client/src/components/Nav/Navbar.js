@@ -6,6 +6,7 @@ import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
 import AnySellerButton from './MiddleNavButton/AnySellerButton';
 import HamburgerMenuNav from './HamburgerMenuNav';
 import { useNavigate } from 'react-router-dom';
+import SellWithUs from './SellWithUs';
 
 
 const Navbar = () => {
@@ -49,8 +50,12 @@ const Navbar = () => {
                         <AnyBrandButton />
                         <AnySellerButton />
                     </div>
+                {/* Sell with us button  */}
+            <div className='flex'>
+                <SellWithUs />
                 {/* Login button */}
                 <HamburgerMenuNav />
+            </div>
         </div>
     );
 }

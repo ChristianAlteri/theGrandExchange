@@ -26,9 +26,7 @@ const HamburgerMenuNav = () => {
     navigate('/signup'); 
   };
 
-  const handleSellClick = () => {
-    navigate('/sell'); 
-  };
+  
 
   return (
     <div
@@ -51,6 +49,7 @@ const HamburgerMenuNav = () => {
         bg-white
       "
     >
+    
       <CiMenuBurger className="h-5 w-6" />
       <CiUser className="h-5 w-6" />
 
@@ -94,19 +93,7 @@ const HamburgerMenuNav = () => {
           >
             Signup
           </div>
-          <div
-            className="
-              flex 
-              flex-col 
-              cursor-pointer 
-              p-2 
-              hover:bg-gray-100
-              border-t
-            "
-            onClick={handleSellClick}
-          >
-            Sell with us
-          </div>
+          
         </div>
       )}
     </div>
