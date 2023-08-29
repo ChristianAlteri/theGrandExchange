@@ -7,29 +7,30 @@ const AddToCartButton = ({ product }) => {
 
 
   const handleCreateOrder = async () => {
+    console.log("entering create order ", product );
+  
     const purchaseDate = dayjs().format("YYYY-MM-DD HH:mm:ss");
     const productId = product._id.toString()
-    console.log("Product ID: " ,productId);
+  
     const input = {
       purchaseDate: purchaseDate,
-      // user: user.user_id,
-      user: "64e7352a9e81c04fda893581", //hardcode for dev
+      user: product.user_id,
       fulfilled: false,
       productIds: [productId],
     };
-
+    
     try {
       const { data } = await createOrder({ variables: { input } });
-      console.log("Created order:", data.createOrder);
+      console.log("Created order:", data);
     } catch (error) {
-        if (error.networkError) {
-          console.error("Network error:", error.networkError);
-        } else if (error.graphQLErrors) {
-          console.error("GraphQL errors:", error.graphQLErrors);
-        } else {
-          console.error("Other error:", error);
-        }
+      if (error.networkError) {
+        console.error("Network error:", error.networkError);
+      } else if (error.graphQLErrors) {
+        console.error("GraphQL errors:", error.graphQLErrors);
+      } else {
+        console.error("Other error:", error);
       }
+    }
   };
 
   return (
