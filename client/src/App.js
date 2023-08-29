@@ -5,6 +5,8 @@ import Navbar from './components/Nav/Navbar';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import Footer from './components/Footer/Footer';
 import './App.css'
+import {Cloudinary} from "@cloudinary/url-gen";
+
 
 // import Test from './pages/Test';
 
@@ -29,7 +31,7 @@ import { setContext } from '@apollo/client/link/context';
 // New Apollo Client config
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql', 
 });
 
 // Authentication
@@ -55,6 +57,8 @@ const client = new ApolloClient({
 // Root App
 
 function App() {
+
+
   return (
   <ApolloProvider client={client}>
     <Router>

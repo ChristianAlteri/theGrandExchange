@@ -12,6 +12,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
+  path: '/graphql', 
 });
 
 app.use(express.urlencoded({ extended: false }));
