@@ -1,10 +1,10 @@
-const Category = require('../models/Category');
-const Order = require('../models/Order');
-const User = require('../models/User');
-const Product = require('../models/Product');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const { AuthenticationError } = require('apollo-server');
+const Category = require("../models/Category");
+const Order = require("../models/Order");
+const User = require("../models/User");
+const Product = require("../models/Product");
+const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { AuthenticationError } = require("apollo-server");
 
 const userResolvers = {
   User: {
@@ -13,14 +13,14 @@ const userResolvers = {
         const orders = await Order.find({ user: user._id });
         return orders;
       } catch (error) {
-        throw new Error('Error fetching orders');
+        throw new Error("Error fetching orders");
       }
     },
     isCorrectPassword: async (user, { password }) => {
       try {
         return await bcryptjs.compare(password, user.password);
       } catch (error) {
-        throw new Error('Error comparing passwords');
+        throw new Error("Error comparing passwords");
       }
     },
   },
@@ -30,7 +30,7 @@ const userResolvers = {
         const user = await User.findById(userId);
         return user;
       } catch (error) {
-        throw new Error('Error fetching user');
+        throw new Error("Error fetching user");
       }
     },
     getAllUsers: async () => {
@@ -38,7 +38,7 @@ const userResolvers = {
         const users = await User.find();
         return users;
       } catch (error) {
-        throw new Error('Error fetching users');
+        throw new Error("Error fetching users");
       }
     },
   },
@@ -49,8 +49,8 @@ const userResolvers = {
         const user = await User.create(input);
         return user;
       } catch (error) {
-        console.log(error)
-        throw new Error('Error creating user');
+        console.log(error);
+        throw new Error("Error creating user");
       }
     },
     updateUser: async (_, { userId, input }) => {
@@ -58,7 +58,7 @@ const userResolvers = {
         const user = await User.findByIdAndUpdate(userId, input, { new: true });
         return user;
       } catch (error) {
-        throw new Error('Error updating user');
+        throw new Error("Error updating user");
       }
     },
     deleteUser: async (_, { userId }) => {
@@ -66,26 +66,28 @@ const userResolvers = {
         const user = await User.findByIdAndRemove(userId);
         return user;
       } catch (error) {
-        throw new Error('Error deleting user');
+        throw new Error("Error deleting user");
       }
     },
     login: async (_, { email, password }) => {
       try {
         const user = await User.findOne({ email });
         if (!user) {
-          throw new AuthenticationError('No user found with this email');
+          throw new AuthenticationError("No user found with this email");
         }
 
         const validPassword = await user.isCorrectPassword(password);
         if (!validPassword) {
-          throw new AuthenticationError('Incorrect password');
+          throw new AuthenticationError("Incorrect password");
         }
 
-        const token = jwt.sign({ userId: user._id }, 'your-secret-key', { expiresIn: '1d' });
+        const token = jwt.sign({ userId: user._id }, "your-secret-key", {
+          expiresIn: "1d",
+        });
 
         return { user, token };
       } catch (error) {
-        throw new Error('Error during login');
+        throw new Error("Error during login");
       }
     },
   },
@@ -98,7 +100,7 @@ const categoryResolvers = {
         const category = await Category.findById(categoryId);
         return category;
       } catch (error) {
-        throw new Error('Error fetching category');
+        throw new Error("Error fetching category");
       }
     },
     getAllCategories: async () => {
@@ -106,7 +108,7 @@ const categoryResolvers = {
         const categories = await Category.find();
         return categories;
       } catch (error) {
-        throw new Error('Error fetching categories');
+        throw new Error("Error fetching categories");
       }
     },
   },
@@ -116,15 +118,17 @@ const categoryResolvers = {
         const category = await Category.create(input);
         return category;
       } catch (error) {
-        throw new Error('Error creating category');
+        throw new Error("Error creating category");
       }
     },
     updateCategory: async (_, { categoryId, input }) => {
       try {
-        const category = await Category.findByIdAndUpdate(categoryId, input, { new: true });
+        const category = await Category.findByIdAndUpdate(categoryId, input, {
+          new: true,
+        });
         return category;
       } catch (error) {
-        throw new Error('Error updating category');
+        throw new Error("Error updating category");
       }
     },
     deleteCategory: async (_, { categoryId }) => {
@@ -132,7 +136,7 @@ const categoryResolvers = {
         const category = await Category.findByIdAndRemove(categoryId);
         return category;
       } catch (error) {
-        throw new Error('Error deleting category');
+        throw new Error("Error deleting category");
       }
     },
   },
@@ -145,7 +149,7 @@ const orderResolvers = {
         const user = await User.findById(order.user);
         return user;
       } catch (error) {
-        throw new Error('Error fetching user');
+        throw new Error("Error fetching user");
       }
     },
     products: async (order) => {
@@ -153,7 +157,7 @@ const orderResolvers = {
         const products = await Product.find({ _id: { $in: order.products } });
         return products;
       } catch (error) {
-        throw new Error('Error fetching products');
+        throw new Error("Error fetching products");
       }
     },
   },
@@ -163,7 +167,7 @@ const orderResolvers = {
         const order = await Order.findById(orderId);
         return order;
       } catch (error) {
-        throw new Error('Error fetching order');
+        throw new Error("Error fetching order");
       }
     },
     getAllOrders: async () => {
@@ -171,31 +175,31 @@ const orderResolvers = {
         const orders = await Order.find();
         return orders;
       } catch (error) {
-        throw new Error('Error fetching orders');
+        throw new Error("Error fetching orders");
       }
     },
   },
   Mutation: {
-    createOrder: async (_,  { input }, context) => {
+    createOrder: async (_, { input }) => {
       console.log("HEREEEEEEEEE", input);
-      // Use context.req.user
-
+    
       try {
-        const order = await Order.create({
-          user: context.user._id,
-          ...input
-        });
+        const order = await Order.create(input); // Use input directly to create order
         return order;
       } catch (error) {
-        throw new Error('Error creating order');
+        console.error("Error creating order:", error); // Log the actual error
+        throw new Error("Error creating order");
       }
+    
     },
     updateOrder: async (_, { orderId, input }) => {
       try {
-        const order = await Order.findByIdAndUpdate(orderId, input, { new: true });
+        const order = await Order.findByIdAndUpdate(orderId, input, {
+          new: true,
+        });
         return order;
       } catch (error) {
-        throw new Error('Error updating order');
+        throw new Error("Error updating order");
       }
     },
     deleteOrder: async (_, { orderId }) => {
@@ -203,7 +207,7 @@ const orderResolvers = {
         const order = await Order.findByIdAndRemove(orderId);
         return order;
       } catch (error) {
-        throw new Error('Error deleting order');
+        throw new Error("Error deleting order");
       }
     },
   },
@@ -216,7 +220,7 @@ const productResolvers = {
         const user = await User.findById(product.user_id);
         return user;
       } catch (error) {
-        throw new Error('Error fetching user');
+        throw new Error("Error fetching user");
       }
     },
     getCategory: async (product) => {
@@ -224,23 +228,28 @@ const productResolvers = {
         const category = await Category.findById(product.category);
         return category;
       } catch (error) {
-        throw new Error('Error fetching category');
+        throw new Error("Error fetching category");
       }
     },
-    getProduct: async (_, { productId }) => {
+    getAllProductsByCategoryId: async (_, { categoryId } ) => {
       try {
-        const product = await Product.findById(productId);
-        return product;
+        console.log("categoryID", categoryId);
+        const products = await Product.find({
+          "category": categoryId,
+        });
+        return products;
       } catch (error) {
-        throw new Error('Error fetching product');
+        console.log(error);
+        throw new Error("Error fetching products by category");
       }
     },
     getAllProducts: async () => {
       try {
-        const products = await Product.find();
+        const products = await Product.find().populate("category")
+        console.log(products);
         return products;
       } catch (error) {
-        throw new Error('Error fetching products');
+        throw new Error("Error fetching products");
       }
     },
   },
@@ -250,15 +259,18 @@ const productResolvers = {
         const product = await Product.create(input);
         return product;
       } catch (error) {
-        throw new Error('Error creating product');
+        console.log(error);
+        throw new Error("Error creating product");
       }
     },
     updateProduct: async (_, { productId, input }) => {
       try {
-        const product = await Product.findByIdAndUpdate(productId, input, { new: true });
+        const product = await Product.findByIdAndUpdate(productId, input, {
+          new: true,
+        });
         return product;
       } catch (error) {
-        throw new Error('Error updating product');
+        throw new Error("Error updating product");
       }
     },
     deleteProduct: async (_, { productId }) => {
@@ -266,7 +278,7 @@ const productResolvers = {
         const product = await Product.findByIdAndRemove(productId);
         return product;
       } catch (error) {
-        throw new Error('Error deleting product');
+        throw new Error("Error deleting product");
       }
     },
   },
@@ -276,9 +288,7 @@ const resolvers = [
   userResolvers,
   categoryResolvers,
   orderResolvers,
-  productResolvers
+  productResolvers,
 ];
 
-module.exports = resolvers
-
-
+module.exports = resolvers;

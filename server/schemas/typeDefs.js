@@ -48,7 +48,7 @@ const typeDefs = gql`
     purchaseDate: String
     user: ID!
     fulfilled: Boolean
-    products: [ID]
+    productIds: [ID]
   }
 
   input ProductInput {
@@ -79,6 +79,8 @@ const typeDefs = gql`
     getAllProducts: [Product]
     getUser(userId: ID!): User
     getAllUsers: [User]
+    getAllProductsByCategoryId(categoryId: String!): [Product]
+
   }
 
   type Mutation {

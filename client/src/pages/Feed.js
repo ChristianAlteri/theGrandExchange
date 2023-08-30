@@ -6,12 +6,14 @@ import { useQuery } from '@apollo/client';
 const Feed = () => {
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
-  if (loading) {
+  if (!data) {
     return <p>Loading...</p>;
   }
 
+// console.log(data);
+
   return (
-    <div className="p-8">
+    <div className="p-8"> 
       <div className="flex flex-wrap">
         {data.getAllProducts.map(product => (
           <ProductCard 
