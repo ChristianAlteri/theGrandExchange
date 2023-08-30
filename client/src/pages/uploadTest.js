@@ -27,22 +27,24 @@ const UploadTest = () => {
   const handleSubmitFile = async (e) => {
     e.preventDefault();
     if (!previewSource) return;
+
+    
+    const input = {
+        name: "John",
+        user_id: "64e7352a9e81c04fda893581", 
+        description: "John stuff",
+        image: '...', 
+        price: "77",
+        category: "64e7357834434387b5a02ad1",
+    }
     console.log("entering handleSubmitFile:", fileInput);
+    console.log("input for handleSubmitFile:", input);
+    
     try {
-      const { data } = await addImage({
-        variables: {
-          input: {
-            name: "John",
-            user_id: "64e7352a9e81c04fda893581", 
-            description: "John stuff",
-            image: fileInput, // Pass the actual file object
-            price: "77",
-            category: "64e7357834434387b5a02ad1",
-          },
-        },
-      });
+      const { data } = await addImage({input}, fileInput);
       console.log("passing this input to addImage:", data);
     } catch (error) {
+
       console.error("Error creating product:", error);
     }
 
