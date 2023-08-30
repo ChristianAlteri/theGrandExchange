@@ -5,7 +5,7 @@ import Navbar from './components/Nav/Navbar';
 import CategoryBar from './components/CategoryBar/CategoryBar';
 import Footer from './components/Footer/Footer';
 import './App.css'
-import {Cloudinary} from "@cloudinary/url-gen";
+
 
 
 // import Test from './pages/Test';
@@ -15,7 +15,7 @@ import Feed from './pages/Feed';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
-import UploadTest from './pages/uploadTest';
+
 
 import SellWithUs from './pages/SellWithUs';
 
@@ -71,9 +71,17 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/sell" element={<SellWithUs />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/upload" element={<UploadTest />} />
+          <Route
+            path="/sell"
+            element={
+              <>
+                <Navbar />
+                <SellWithUs />
+                <Footer />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </div>

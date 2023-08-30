@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "../utils/mutations";
-import { Image } from "cloudinary-react"; // Import Cloudinary Image component
-import createUploadWidget from "../utils/cloudinaryService";
+import { ADD_IMAGE, CREATE_PRODUCT } from "../utils/mutations";
+import UploadWidget from "../components/UploadWidget/UploadWidget";
 
 
 const SellWithUs = () => {
@@ -10,13 +9,15 @@ const SellWithUs = () => {
     name: "",
     user_id: "64e7352a9e81c04fda893581",
     description: "",
-    image: "", // Store the Cloudinary image URL here
+    image: "",
     price: "",
     category: "",
   });
 
+  const [url, updateUrl] = useState(null);
+  const [error, updateError] = useState(null);
 
-
+  const [addImage] = useMutation(ADD_IMAGE);
   const [createProduct] = useMutation(CREATE_PRODUCT);
 
   const handleChange = (event) => {
@@ -27,17 +28,22 @@ const SellWithUs = () => {
     });
   };
 
-  const handleImageUpload = () => {
-    console.log("HEEEERRRRRREEEEE");
+  const handleOnUpload = async (error, result, widget) => {
+    if (error) {
+      updateError(error);
+      widget.close({ quiet: true });
+      return;
+    }
+    updateUrl(result?.info?.secure_url);
 
-    createUploadWidget((error, result) => {
-      if (!error && result && result.event === "success") {
-        setFormData({
-          ...formData,
-          image: result.info.secure_url, // Set the Cloudinary image URL
-        });
-      }
-    });
+    try {
+      const { data } = await addImage({
+        input: { url: result?.info?.secure_url },
+      });
+      console.log("passing this input to addImage:", data);
+    } catch (error) {
+      console.error("Error creating product image:", error);
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -45,9 +51,9 @@ const SellWithUs = () => {
 
     const input = {
       name: formData.name,
-      user_id: "64e7352a9e81c04fda893581", // hard coded change to session.id
+      user_id: "64e7352a9e81c04fda893581",
       description: formData.description,
-      image: formData.image,
+      image: url,
       price: parseFloat(formData.price),
       category: formData.category,
     };
@@ -63,67 +69,69 @@ const SellWithUs = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center p-40">
       <form
         onSubmit={handleSubmit}
         className="w-96 p-4 border rounded-lg shadow-lg"
       >
-        {[
-          { label: "Name:", name: "name", type: "text" },
-          { label: "Description:", name: "description", type: "text" },
-          { label: "Image:", name: "image", type: "file" }, // Change type to "file"
-          { label: "Price:", name: "price", type: "number" },
-        ].map((inputField, index) => (
-          <div className="mb-4" key={index}>
-            <label htmlFor={inputField.name}>{inputField.label}</label>
-            {inputField.type === "text" ? (
-              <input
-                className="w-full p-2 border rounded"
-                name={inputField.name}
-                type={inputField.type}
-                id={inputField.name}
-                value={formData[inputField.name]}
-                onChange={handleChange}
-              />
-            ) : inputField.type === "file" ? (
-              <div>
-                <input
-                  className="w-full p-2 border rounded"
-                  name={inputField.name}
-                  type="file" 
-                  accept="image/*" 
-                  onChange={handleImageUpload} 
+        <div className="mb-4">
+          <label htmlFor="name">Name:</label>
+          <input
+            className="w-full p-2 border rounded"
+            name="name"
+            type="text"
+            value={formData.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="description">Description:</label>
+          <input
+            className="w-full p-2 border rounded"
+            name="description"
+            type="text"
+            value={formData.description}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="image" className="block">
+            Image:
+          </label>
+          <div className="w-full p-2 border rounded">
+            <UploadWidget onUpload={handleOnUpload}></UploadWidget>
+            {error && <p className="text-red-500">{error}</p>}
+            {url && (
+              <div className="mt-2">
+                <img
+                  className="max-w-xs max-h-xs"
+                  src={url}
+                  alt="Uploaded resource"
                 />
-               {formData.image && (
-                  <Image
-                    cloudName="dqpfur9e1"
-                    publicId={formData.image}
-                    width="100"
-                    crop="scale"
-                  />
-                )} 
               </div>
-            ) : (
-              <input
-                className="w-full p-2 border rounded"
-                name={inputField.name}
-                type={inputField.type}
-                id={inputField.name}
-                value={formData[inputField.name]}
-                onChange={handleChange}
-              />
             )}
           </div>
-        ))}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="price">Price:</label>
+          <input
+            className="w-full p-2 border rounded"
+            name="price"
+            type="number"
+            value={formData.price}
+            onChange={handleChange}
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="category">Category:</label>
           <select
             className="w-full p-2 border rounded"
             name="category"
-            id="category"
+            value={formData.category}
             onChange={handleChange}
           >
             <option value="">Select a category</option>
+            {/* code the category id's */}
             <option value="64e7357834434387b5a02ad0">Man</option>
             <option value="64e7357834434387b5a02ad1">Woman</option>
           </select>
