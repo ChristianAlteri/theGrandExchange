@@ -267,21 +267,13 @@ const productResolvers = {
         throw new Error("Error creating product");
       }
     },
-    addImage: async (_, { input }, fileInput) => {
+    addImage: async (_, { input }) => {
       console.log("made it into addImage with this input", input);
-      console.log("made it into addImage with this fileInput", fileInput);
+      // console.log("made it into addImage with this fileInput", fileInput);
 
       try {
         // `input.image` is an instance of `Upload` type
-        const { filename, mimetype } = await fileInput;
-
-        console.log("Data created by cloudinary", filename, mimetype,);
-
-        const imgUpload = await cloudinary.uploader.upload(createReadStream(), {
-          public_id: `Re-up-folder/${filename}`,
-        });
-
-        console.log(imgUpload);
+       
         
           
             
