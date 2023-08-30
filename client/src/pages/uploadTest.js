@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_IMAGE } from '../utils/mutations'; // Make sure to provide the correct path
 
+
+
+
 const UploadTest = () => {
   const [fileInput, setFileInput] = useState(null);
   const [previewSource, setPreviewSource] = useState(null);
@@ -29,6 +32,8 @@ const UploadTest = () => {
     if (!previewSource) return;
 
     
+    
+
     const input = {
         name: "John",
         user_id: "64e7352a9e81c04fda893581", 
@@ -38,10 +43,11 @@ const UploadTest = () => {
         category: "64e7357834434387b5a02ad1",
     }
     console.log("entering handleSubmitFile:", fileInput);
-    console.log("input for handleSubmitFile:", input);
+    // console.log("input for handleSubmitFile:", input);
     
     try {
-      const { data } = await addImage({input}, fileInput);
+
+      const { data } = await addImage({input});
       console.log("passing this input to addImage:", data);
     } catch (error) {
 
