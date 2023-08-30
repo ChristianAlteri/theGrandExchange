@@ -60,6 +60,7 @@ function App() {
 
 
   return (
+  <ApolloProvider client={client}>
     <Router>
       <div>
         <Routes>
@@ -90,9 +91,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sell" element={<SellWithUs />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>
+    </ApolloProvider>
   );
 }
 
