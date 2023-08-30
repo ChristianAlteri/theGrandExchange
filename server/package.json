@@ -19,6 +19,8 @@
     "graphql": "^16.8.0",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.5",
+    "cloudinary": "^1.40.0",
+    "cloudinary-core": "^2.13.0",
     "nodemon": "^3.0.1"
   }
 }

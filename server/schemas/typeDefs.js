@@ -91,6 +91,7 @@ const typeDefs = gql`
     updateOrder(orderId: ID!, input: OrderInput!): Order
     deleteOrder(orderId: ID!): Order
     createProduct(input: ProductInput!): Product
+    addImage(input: ProductInput!): Product
     updateProduct(productId: ID!, input: ProductInput!): Product
     deleteProduct(productId: ID!): Product
     createUser(input: UserInput!): User
