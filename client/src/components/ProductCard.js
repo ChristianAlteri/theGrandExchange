@@ -1,21 +1,18 @@
-import React from "react";
-import { Image } from "cloudinary-react"; 
+import React, { useState } from "react";
+import { Image } from "cloudinary-react";
 import AddToCartButton from "./AddToCartButton";
+import ProductDetailsCard from "./ProductDetailsCard";
+import SelectSize from "./SelectSize";
 
 const ProductCard = ({ product }) => {
-  const {
-    _id,
-    name,
-    user_id,
-    description,
-    // image,
-    price,
-    category
-  } = product;
+  const { _id, name, user_id, description, image, price, category } = product;
 
-  const image = "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693306870/Pants_bqdlul.webp"
+  const [showDetails, setShowDetails] = useState(false);
 
-  // console.log(product);
+  const handleClick = () => {
+    setShowDetails(!showDetails);
+  };
+
   return (
     <div
       className="
@@ -29,24 +26,46 @@ const ProductCard = ({ product }) => {
         m-4
         p-4
         rounded-lg
-        overflow-hidden"
-      onClick={() => console.log(product.name + " and " + product.category.name)}
+        overflow-hidden
+        hover:cursor-pointer"
+      onClick={handleClick}
     >
-      <div className="font-semibold">{name}</div>
-      <div className="mt-4 font-bold text-blue-600 flex justify-between items-center">
-        ${price}
-        <AddToCartButton product={product} />
-      </div>
-        <div className="mt-4">
-          <Image
-            cloudName="dqpfur9e1" 
-            publicId={image}
-            alt={name}
-            width="100%"
-            height="auto"
-          />
-        </div>
-        <div className="text-sm text-gray-600 mt-2">{description}</div>
+      {showDetails && (
+        <>
+          <ProductDetailsCard product={product} />
+          <div className="mt-4">
+            <Image
+              cloudName="dqpfur9e1"
+              publicId={image}
+              alt={name}
+              width="100%"
+              height="auto"
+            />
+          </div>
+          
+        </>
+      )}
+
+      {!showDetails && (
+        <>
+          <div className="font-semibold">{name}</div>
+          <div className="mt-4 font-bold text-blue-600 flex justify-between items-center">
+            ${price}
+            <AddToCartButton product={product} />
+          </div>
+          <div className="mt-4">
+            <Image
+              cloudName="dqpfur9e1"
+              publicId={image}
+              alt={name}
+              width="100%"
+              height="auto"
+            />
+          </div>
+        </>
+      )}
+
+      {/* <div className="text-sm text-gray-600 mt-2">{description}</div> */}
     </div>
   );
 };
