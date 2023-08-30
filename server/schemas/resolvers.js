@@ -5,6 +5,10 @@ const Product = require("../models/Product");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { AuthenticationError } = require("apollo-server");
+const cloudinary = require('cloudinary');
+// const { GraphQLUpload } = require('graphql-upload');
+
+
 
 const userResolvers = {
   User: {
@@ -266,14 +270,28 @@ const productResolvers = {
     addImage: async (_, { input }) => {
       console.log("made it into addImage");
 
-
-  
       try {
-        const product = await Product.create(this.includesnput);
+        // `input.image` is an instance of `Upload` type
+        const { createReadStream, filename, mimetype } = await input.image;
+
+        console.log("Data created by cloudinary", filename, mimetype);
+
+        const imgUpload = await cloudinary.uploader.upload(createReadStream(), {
+          public_id: `Re-up-folder/${filename}`,
+        });
+
+        console.log(imgUpload);
+
+        // Create the product with the Cloudinary secure URL
+        const product = await Product.create({
+          ...input, // Assuming the input object contains other fields for the product
+          image: imgUpload.secure_url,
+        });
+
         return product;
       } catch (error) {
         console.log(error);
-        throw new Error('Error updating user profile');
+        throw new Error('Error creating product');
       }
     },
     updateProduct: async (_, { productId, input }) => {
@@ -302,6 +320,7 @@ const resolvers = [
   categoryResolvers,
   orderResolvers,
   productResolvers,
+// { Upload: GraphQLUpload },
 ];
 
 module.exports = resolvers;

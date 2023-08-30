@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client'; // Import from your actual Apollo client library
-import { ADD_IMAGE } from '../utils/mutations'; // Import your mutation from the correct path
-import cloudinary from 'cloudinary';
+import { useMutation } from '@apollo/client';
+import { ADD_IMAGE } from '../utils/mutations'; // Make sure to provide the correct path
 
 const UploadTest = () => {
-  const [fileInput, setFileInput] = useState(null); // Initialize with null
+  const [fileInput, setFileInput] = useState(null);
   const [previewSource, setPreviewSource] = useState(null);
 
-  const [addImage] = useMutation(ADD_IMAGE); // Hook for the GraphQL mutation
+  const [addImage] = useMutation(ADD_IMAGE);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -28,35 +27,23 @@ const UploadTest = () => {
   const handleSubmitFile = async (e) => {
     e.preventDefault();
     if (!previewSource) return;
-    await uploadImage();
-  };
-
-  const uploadImage = async () => {
-    console.log("uploadImage function reached");
-
+    console.log("entering handleSubmitFile:", fileInput);
     try {
-      const imgUpload = await cloudinary.uploader.upload(previewSource); // Upload the preview image
-      console.log("image uploaded data: ", imgUpload);
-
-      const input = {
-        name: "John",
-        user_id: "64e7352a9e81c04fda893581", // Replace with session.id
-        description: "John stuff",
-        image: imgUpload.secure_url,
-        price: "77",
-        category: "64e7357834434387b5a02ad1",
-      };
-
-      const { data } = await addImage({ variables: { input } });
-      console.log("Created order:", data);
+      const { data } = await addImage({
+        variables: {
+          input: {
+            name: "John",
+            user_id: "64e7352a9e81c04fda893581", 
+            description: "John stuff",
+            image: fileInput, // Pass the actual file object
+            price: "77",
+            category: "64e7357834434387b5a02ad1",
+          },
+        },
+      });
+      console.log("passing this input to addImage:", data);
     } catch (error) {
-      if (error.networkError) {
-        console.error("Network error:", error.networkError);
-      } else if (error.graphQLErrors) {
-        console.error("GraphQL errors:", error.graphQLErrors);
-      } else {
-        console.error("Other error:", error);
-      }
+      console.error("Error creating product:", error);
     }
 
     setFileInput(null);
