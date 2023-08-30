@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CartIcon from "./Cart/CartIcon";
-import SearchBar from "./SearchBar";
+import SearchBar from "../CategoryBar/SearchBar";
 import { CiSearch } from "react-icons/ci";
 
 
@@ -13,7 +13,7 @@ const Footer = () => {
     };
 
     return (
-        <div className="fixed bottom-0 w-full bg-gray-200 p-4 flex justify-end">
+        <div className="fixed bottom-0 w-full bg-gray-200 p-4 flex justify-end footer">
           <div className="flex">
             {searchBarOpen && <SearchBar />}
                 <button 

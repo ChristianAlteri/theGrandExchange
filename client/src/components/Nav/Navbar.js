@@ -49,10 +49,10 @@ const Navbar = () => {
                         ">
                         <AnyBrandButton />
                         <AnySellerButton />
+            <div className='flex sell-btn'>
+                <SellWithUs />
                     </div>
                 {/* Sell with us button  */}
-            <div className='flex'>
-                <SellWithUs />
                 {/* Login button */}
                 <HamburgerMenuNav />
             </div>

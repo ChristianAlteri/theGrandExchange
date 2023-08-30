@@ -9,17 +9,17 @@
     src: url('../src/assets/fonts/PPMori-ExtraBold.woff2') format('woff2'),
          url('../src/assets/fonts/PPMori-ExtraBold.woff') format('woff');
     font-weight: 900;
-    font-style: normal;
+    font-style: bold;
   }
   
-  @font-face {
+  /* @font-face {
     font-family: 'PP Mori';
     src: url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff2') format('woff2'),
           url('../src/assets/fonts/PPMori-ExtraBoldItalic.woff') format('woff');
     font-weight: 900;
     font-style: normal;
   }
-  
+   */
   
   @font-face {
     font-family: 'PP Mori';
@@ -36,6 +36,10 @@
     }
   }
 
+
+  .category-bar p{
+    font-family: 'PP Mori', sans-serif;
+  }
   
   .user-menu {
     color: #000;
@@ -55,6 +59,41 @@
 
   .category-bar {
     background-color: #fff;
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  .sell-btn {
+    background-color: #fff;
+    border: 2px solid black;
+    padding: 5px 20px;
+    border-radius: 25px;
+  }
+
+  .sell-btn:hover {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .gender-toggle h6 {
+    font-family: PP Mori, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0px 10px;
+  }
+
+  .gender-toggle h6:hover {
+    text-decoration: underline;
+  }
+
+  .footer {
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+  }
+
+  .category-bar li {
+    font-family: PP Mori, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
   }

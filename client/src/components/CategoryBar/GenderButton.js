@@ -24,19 +24,19 @@ const GenderButton = () => {
   return (
     <>
       <div
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer gender-toggle"
         style={{ fontSize: '30px' }}
         onClick={() => handleGenderChange("64e7357834434387b5a02ad0")}
       >
-        <IoManOutline />
+        <h6>MALE</h6>
       </div>
       
       <div
-        className="hover:cursor-pointer"
+        className="hover:cursor-pointer gender-toggle"
         style={{ fontSize: '30px' }}
         onClick={() => handleGenderChange('64e7357834434387b5a02ad1')}
       >
-        <IoWomanOutline />
+        <h6>FEMALE</h6>
       </div>
     </>
   );
