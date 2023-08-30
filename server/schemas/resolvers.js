@@ -182,7 +182,7 @@ const orderResolvers = {
   Mutation: {
     createOrder: async (_, { input }) => {
       console.log("HEREEEEEEEEE", input);
-    
+
       try {
         const order = await Order.create(input); // Use input directly to create order
         return order;
@@ -190,7 +190,6 @@ const orderResolvers = {
         console.error("Error creating order:", error); // Log the actual error
         throw new Error("Error creating order");
       }
-    
     },
     updateOrder: async (_, { orderId, input }) => {
       try {
@@ -231,11 +230,11 @@ const productResolvers = {
         throw new Error("Error fetching category");
       }
     },
-    getAllProductsByCategoryId: async (_, { categoryId } ) => {
+    getAllProductsByCategoryId: async (_, { categoryId }) => {
       try {
         console.log("categoryID", categoryId);
         const products = await Product.find({
-          "category": categoryId,
+          category: categoryId,
         });
         return products;
       } catch (error) {
@@ -245,8 +244,8 @@ const productResolvers = {
     },
     getAllProducts: async () => {
       try {
-        const products = await Product.find().populate("category")
-        console.log(products);
+        const products = await Product.find().populate("category");
+        // console.log(products);
         return products;
       } catch (error) {
         throw new Error("Error fetching products");
@@ -255,12 +254,26 @@ const productResolvers = {
   },
   Mutation: {
     createProduct: async (_, { input }) => {
+      console.log("made it in create product");
       try {
         const product = await Product.create(input);
         return product;
       } catch (error) {
         console.log(error);
         throw new Error("Error creating product");
+      }
+    },
+    addImage: async (_, { input }) => {
+      console.log("made it into addImage");
+
+
+  
+      try {
+        const product = await Product.create(this.includesnput);
+        return product;
+      } catch (error) {
+        console.log(error);
+        throw new Error('Error updating user profile');
       }
     },
     updateProduct: async (_, { productId, input }) => {

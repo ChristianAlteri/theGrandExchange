@@ -15,6 +15,7 @@ import Feed from './pages/Feed';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import UploadTest from './pages/uploadTest';
 
 import SellWithUs from './pages/SellWithUs';
 
@@ -90,6 +91,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sell" element={<SellWithUs />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/upload" element={<UploadTest />} />
         </Routes>
       </div>
     </Router>

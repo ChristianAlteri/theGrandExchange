@@ -44,7 +44,23 @@ export const CREATE_PRODUCT = gql`
       description
       image
       price
-      category
+      
+    }
+  }
+
+`;
+
+
+export const ADD_IMAGE = gql`
+  mutation addImage($input: ProductInput!) {
+    addImage(input: $input) {
+      name
+      user_id
+      description
+      image
+      price
     }
   }
 `;
+
+
