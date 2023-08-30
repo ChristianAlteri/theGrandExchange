@@ -59,29 +59,10 @@ function App() {
   <ApolloProvider client={client}>
     <Router>
       <div>
+      <Navbar />
+      <CategoryBar />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Navbar />
-                <CategoryBar />
-                <Feed />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/feed"
-            element={
-              <>
-                <Navbar />
-                <CategoryBar />
-                <Feed />
-                <Footer />
-              </>
-            }
-          />
+          <Route path="/" element={<Feed />}/>
           <Route path="/test" element={<Test />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
@@ -89,6 +70,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
     </ApolloProvider>

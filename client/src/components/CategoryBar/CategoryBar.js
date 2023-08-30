@@ -14,7 +14,7 @@ const CategoryBar = () => {
     return (
         <div className="
             flex 
-            
+            category-bar
             justify-between 
             items-center 
             p-4 

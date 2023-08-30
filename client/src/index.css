@@ -35,3 +35,26 @@
         font-family: 'PP Mori', sans-serif;
     }
   }
+
+  
+  .user-menu {
+    color: #000;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 10px 40px !important;
+  }
+
+
+  .user-menu-open {
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 25px;
+    padding: 1rem;
+  }
+
+  .category-bar {
+    background-color: #fff;
+    border-top: 4px solid black;
+    border-bottom: 4px solid black;
+  }

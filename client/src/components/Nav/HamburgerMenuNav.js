@@ -34,6 +34,7 @@ const HamburgerMenuNav = () => {
     <div
       onClick={toggleOpen}
       className="
+        user-menu
         p-4
         md:py-1
         sm:py-2
@@ -47,6 +48,7 @@ const HamburgerMenuNav = () => {
         cursor-pointer
         hover:shadow-md
         transition
+        bg-white
       "
     >
       <CiMenuBurger className="h-5 w-6" />
@@ -64,6 +66,7 @@ const HamburgerMenuNav = () => {
             right-0 
             top-14
             text-sm
+            user-menu-open
           "
         >
 

@@ -23,7 +23,8 @@ const Navbar = () => {
         justify-between 
         items-center 
         p-4
-        bg-blue"
+        bg-blue 
+        custom-font"
         >
             {/* Logo div */}
             <div className="

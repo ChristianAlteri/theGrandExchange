@@ -7,10 +7,6 @@ module.exports = {
     colors: {
        blue: '#18499D',
     },
-    fontFamily: {
-      PPmori: ['PP Mori, sans-serif'],
-    },
-
     fontSize: {
       xl: ['4.5rem'],
       lg: ['3rem'],
@@ -20,7 +16,11 @@ module.exports = {
     borderRadius: {
       'sm': '1.25rem',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        custom: ['PP Mori, sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
