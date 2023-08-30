@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { CiMenuBurger, CiUser } from "react-icons/ci";
+import Auth from '../../utils/auth';
 
 const HamburgerMenuNav = () => {
 
@@ -14,9 +15,13 @@ const HamburgerMenuNav = () => {
   };
 
   const handleLoginClick = () => {
-    navigate('/login'); 
+    if (Auth.loggedIn()) {
+      // Logout logic here
+      Auth.logout();
+    } else {
+      navigate('/login');
+    }
   };
-
   const handleSignupClick = () => {
     navigate('/signup'); 
   };
@@ -61,6 +66,7 @@ const HamburgerMenuNav = () => {
             text-sm
           "
         >
+
           <div
             className="
               flex 
@@ -71,7 +77,7 @@ const HamburgerMenuNav = () => {
             "
             onClick={handleLoginClick}
           >
-            Login
+          {Auth.loggedIn() ? 'Logout' : 'Login'}
           </div>
           <div
             className="

@@ -16,7 +16,7 @@ function Login(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
-      console.log('login successful', token)
+      console.log('login successful')
     } catch (e) {
       console.log(e);
     }
