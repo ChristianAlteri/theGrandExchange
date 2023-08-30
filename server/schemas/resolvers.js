@@ -267,40 +267,7 @@ const productResolvers = {
         throw new Error("Error creating product");
       }
     },
-    // addImage: async (_, { input }, fileInput) => {
-    //   console.log("made it into addImage with this input", input);
-    //   console.log("made it into addImage with this fileInput", fileInput);
-
-    //   try {
-    //     // `input.image` is an instance of `Upload` type
-    //     const { filename, mimetype } = await fileInput;
-
-    //     console.log("Data created by cloudinary", filename, mimetype,);
-
-    //     const imgUpload = await cloudinary.uploader.upload(createReadStream(), {
-    //       public_id: `Re-up-folder/${filename}`,
-    //     });
-
-    //     console.log(imgUpload);
-        
-          
-            
-          
-        
-
-    //     // Create the product with the Cloudinary secure URL
-    //     const product = await Product.create({
-    //       ...input, // Assuming the input object contains other fields for the product
-    //       image: imgUpload.secure_url,
-    //     });
-
-    //     return product;
-    //   } catch (error) {
-    //     console.log(error);
-    //     throw new Error('Error creating product');
-    //   }
-    // },
-    addImage: async (_, { input }, ) => {
+    addImage: async (_, { input }, fileInput) => {
       console.log("made it into addImage with this input", input);
       console.log("made it into addImage with this fileInput", fileInput);
 
@@ -333,6 +300,7 @@ const productResolvers = {
         throw new Error('Error creating product');
       }
     },
+    
     updateProduct: async (_, { productId, input }) => {
       try {
         const product = await Product.findByIdAndUpdate(productId, input, {
