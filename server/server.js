@@ -2,6 +2,8 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
+require('dotenv').config();
+const cloudinary = require('cloudinary').v2;
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -13,10 +15,21 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
   path: '/graphql', 
+  uploads: {
+    maxFileSize: 10000000, 
+    maxFiles: 1, 
+  },
+  // uploads: true,
 });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 // Serve up static assets
 app.use('/images', express.static(path.join(__dirname, '../client/images')));

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/Feed/ProductCard';
 import { QUERY_ALL_PRODUCTS } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 

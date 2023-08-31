@@ -31,6 +31,7 @@ const typeDefs = gql`
     userName: String!
     email: String!
     location: String!
+    following: [User]
     products: [Product]
     orders: [Order]
   }
@@ -76,10 +77,21 @@ const typeDefs = gql`
     getOrder(orderId: ID!): Order
     getAllOrders: [Order]
     getProduct(productId: ID!): Product
+
+
     getAllProducts: [Product]
-    getUser(userId: ID!): User
+    
+    getProductsFromFollowing(_id: ID!): [User]
+
+
+    
+    getUser(userId: ID!): User 
+
+    
     getAllUsers: [User]
+
     getAllProductsByCategoryId(categoryId: String!): [Product]
+    
 
   }
 
@@ -91,6 +103,7 @@ const typeDefs = gql`
     updateOrder(orderId: ID!, input: OrderInput!): Order
     deleteOrder(orderId: ID!): Order
     createProduct(input: ProductInput!): Product
+    addImage(input: ProductInput!): Product
     updateProduct(productId: ID!, input: ProductInput!): Product
     deleteProduct(productId: ID!): Product
     createUser(input: UserInput!): User

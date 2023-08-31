@@ -5,6 +5,10 @@ const Product = require("../models/Product");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { AuthenticationError } = require("apollo-server");
+const cloudinary = require('cloudinary');
+// const { GraphQLUpload } = require('graphql-upload');
+
+
 
 const userResolvers = {
   User: {
@@ -27,9 +31,20 @@ const userResolvers = {
   Query: {
     getUser: async (_, { userId }) => {
       try {
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).populate({
+          path: 'following', 
+          populate: {
+            path: 'products', 
+          },
+        });
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+        console.log(user.following);
         return user;
       } catch (error) {
+        console.log(error);
         throw new Error("Error fetching user");
       }
     },
@@ -182,7 +197,7 @@ const orderResolvers = {
   Mutation: {
     createOrder: async (_, { input }) => {
       console.log("HEREEEEEEEEE", input);
-    
+
       try {
         const order = await Order.create(input); // Use input directly to create order
         return order;
@@ -190,7 +205,6 @@ const orderResolvers = {
         console.error("Error creating order:", error); // Log the actual error
         throw new Error("Error creating order");
       }
-    
     },
     updateOrder: async (_, { orderId, input }) => {
       try {
@@ -215,27 +229,12 @@ const orderResolvers = {
 
 const productResolvers = {
   Query: {
-    getUser: async (product) => {
-      try {
-        const user = await User.findById(product.user_id);
-        return user;
-      } catch (error) {
-        throw new Error("Error fetching user");
-      }
-    },
-    getCategory: async (product) => {
-      try {
-        const category = await Category.findById(product.category);
-        return category;
-      } catch (error) {
-        throw new Error("Error fetching category");
-      }
-    },
-    getAllProductsByCategoryId: async (_, { categoryId } ) => {
+    getAllProductsByCategoryId: async (_, { categoryId }) => {
       try {
         console.log("categoryID", categoryId);
+        console.log("WORKING?");
         const products = await Product.find({
-          "category": categoryId,
+          category: categoryId,
         });
         return products;
       } catch (error) {
@@ -245,22 +244,44 @@ const productResolvers = {
     },
     getAllProducts: async () => {
       try {
-        const products = await Product.find().populate("category")
-        console.log(products);
+        const products = await Product.find().populate("category");
+        // console.log(products);
         return products;
       } catch (error) {
         throw new Error("Error fetching products");
       }
     },
+    getProductsFromFollowing: async (_, { id }) => {
+      const mainUser = await User.findById(id); 
+
+      console.log("Main USer id; ", mainUser);
+    
+      return mainUser;
+    },
+
   },
   Mutation: {
     createProduct: async (_, { input }) => {
+      console.log("made it in create product");
       try {
         const product = await Product.create(input);
         return product;
       } catch (error) {
         console.log(error);
         throw new Error("Error creating product");
+      }
+    },
+    addImage: async (_, { input }) => {
+      console.log("made it into addImage with this input", input);
+      try {
+        const product = await Product.create({
+          ...input, 
+          image: imgUpload.secure_url,
+        });
+        return product;
+      } catch (error) {
+        console.log(error);
+        throw new Error('Error creating product');
       }
     },
     updateProduct: async (_, { productId, input }) => {
@@ -284,11 +305,13 @@ const productResolvers = {
   },
 };
 
+
 const resolvers = [
   userResolvers,
   categoryResolvers,
   orderResolvers,
   productResolvers,
+// { Upload: GraphQLUpload },
 ];
 
 module.exports = resolvers;

@@ -27,7 +27,7 @@ const AnySellerButton = () => {
                     className="cursor-pointer"
                     onClick={handleSellerToggle}
                 >
-                    Any Seller 
+                    Explore 
                 </div>
                 {isSellerOpen && (
                     <div className="mt-1">

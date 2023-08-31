@@ -93,3 +93,28 @@ query GetAllProductsByCategoryId($categoryId: String!) {
   }
 }
 `;
+
+export const QUERY_PRODUCTS_FROM_FOLLOWING = gql`
+query GetProductsFromFollowing($userId: ID!) {
+    getProductsFromFollowing(_id: $userId) {
+      _id
+      firstName
+      following {
+        _id
+        
+        products {
+          _id
+          name
+          user_id
+          description
+          image
+          price
+          category {
+            _id
+            name
+          }
+        }
+      }
+    }
+  }
+`;
