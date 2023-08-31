@@ -46,6 +46,6 @@ const CategoryBar = () => {
             </div>
         </div>
     );
-};
+                        };
 
 export default CategoryBar;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { CiMenuBurger, CiUser } from "react-icons/ci";
+import Auth from '../../utils/auth';
 
 const HamburgerMenuNav = () => {
 
@@ -14,9 +15,13 @@ const HamburgerMenuNav = () => {
   };
 
   const handleLoginClick = () => {
-    navigate('/login'); 
+    if (Auth.loggedIn()) {
+      // Logout logic here
+      Auth.logout();
+    } else {
+      navigate('/login');
+    }
   };
-
   const handleSignupClick = () => {
     navigate('/signup'); 
   };
@@ -27,6 +32,7 @@ const HamburgerMenuNav = () => {
     <div
       onClick={toggleOpen}
       className="
+        user-menu
         p-4
         md:py-1
         sm:py-2
@@ -40,6 +46,7 @@ const HamburgerMenuNav = () => {
         cursor-pointer
         hover:shadow-md
         transition
+        bg-white
       "
     >
     
@@ -58,8 +65,10 @@ const HamburgerMenuNav = () => {
             right-0 
             top-14
             text-sm
+            user-menu-open
           "
         >
+
           <div
             className="
               flex 
@@ -70,7 +79,7 @@ const HamburgerMenuNav = () => {
             "
             onClick={handleLoginClick}
           >
-            Login
+          {Auth.loggedIn() ? 'Logout' : 'Login'}
           </div>
           <div
             className="

@@ -24,7 +24,8 @@ const Navbar = () => {
         justify-between 
         items-center 
         p-4
-        bg-blue"
+        bg-blue 
+        custom-font"
         >
             {/* Logo div */}
             <div className="
@@ -48,10 +49,10 @@ const Navbar = () => {
                         ">
                         <AnyBrandButton />
                         <AnySellerButton />
+            <div className='flex sell-btn'>
+                <SellWithUs />
                     </div>
                 {/* Sell with us button  */}
-            <div className='flex'>
-                <SellWithUs />
                 {/* Login button */}
                 <HamburgerMenuNav />
             </div>

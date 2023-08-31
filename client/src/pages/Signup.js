@@ -6,7 +6,15 @@ import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 
 function Signup(props) {
-  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [formState, setFormState] = useState({ 
+    email: "", 
+    password: "",
+    firstName: "",
+    lastName: "",
+    userName: "",
+    dateOfBirth: "",
+    location: "",
+  });
   const [createUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
@@ -26,8 +34,8 @@ function Signup(props) {
         },
       },
     });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
+    const token = localStorage.getItem('id_token');
+    Auth.login(token);
   };
 
   const handleChange = (event) => {
@@ -93,7 +101,7 @@ function Signup(props) {
             placeholder="********"
             name="dateOfBirth"
             type="date"
-            id="DOB"
+            id="dateOfBirth"
             onChange={handleChange}
           />
         </div>
@@ -113,7 +121,7 @@ function Signup(props) {
             placeholder="********"
             name="password"
             type="password"
-            id="pwd"
+            id="password"
             onChange={handleChange}
           />
         </div>
