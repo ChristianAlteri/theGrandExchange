@@ -31,9 +31,20 @@ const userResolvers = {
   Query: {
     getUser: async (_, { userId }) => {
       try {
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).populate({
+          path: 'following', 
+          populate: {
+            path: 'products', 
+          },
+        });
+
+        if (!user) {
+          throw new Error("User not found");
+        }
+        console.log(user.following);
         return user;
       } catch (error) {
+        console.log(error);
         throw new Error("Error fetching user");
       }
     },
@@ -218,25 +229,10 @@ const orderResolvers = {
 
 const productResolvers = {
   Query: {
-    getUser: async (product) => {
-      try {
-        const user = await User.findById(product.user_id);
-        return user;
-      } catch (error) {
-        throw new Error("Error fetching user");
-      }
-    },
-    getCategory: async (product) => {
-      try {
-        const category = await Category.findById(product.category);
-        return category;
-      } catch (error) {
-        throw new Error("Error fetching category");
-      }
-    },
     getAllProductsByCategoryId: async (_, { categoryId }) => {
       try {
         console.log("categoryID", categoryId);
+        console.log("WORKING?");
         const products = await Product.find({
           category: categoryId,
         });
@@ -255,6 +251,14 @@ const productResolvers = {
         throw new Error("Error fetching products");
       }
     },
+    getProductsFromFollowing: async (_, { id }) => {
+      const mainUser = await User.findById(id); 
+
+      console.log("Main USer id; ", mainUser);
+    
+      return mainUser;
+    },
+
   },
   Mutation: {
     createProduct: async (_, { input }) => {
@@ -269,30 +273,17 @@ const productResolvers = {
     },
     addImage: async (_, { input }) => {
       console.log("made it into addImage with this input", input);
-      // console.log("made it into addImage with this fileInput", fileInput);
-
       try {
-        // `input.image` is an instance of `Upload` type
-       
-        
-          
-            
-          
-        
-
-        // Create the product with the Cloudinary secure URL
         const product = await Product.create({
-          ...input, // Assuming the input object contains other fields for the product
+          ...input, 
           image: imgUpload.secure_url,
         });
-
         return product;
       } catch (error) {
         console.log(error);
         throw new Error('Error creating product');
       }
     },
-    
     updateProduct: async (_, { productId, input }) => {
       try {
         const product = await Product.findByIdAndUpdate(productId, input, {
@@ -313,6 +304,7 @@ const productResolvers = {
     },
   },
 };
+
 
 const resolvers = [
   userResolvers,

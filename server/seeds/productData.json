@@ -1,52 +1,111 @@
-[
-    {
-      "name": "Vivienne Westwood Corset",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Iconic corset designed by Vivienne Westwood",
-      "image": "corset.jpg",
-      "price": 599.99,
-      "category": "64e7357834434387b5a02ad0"
-    },
-    {
-      "name": "Alexander McQueen Dress",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Elegant dress designed by Alexander McQueen",
-      "image": "mcqueen-dress.jpg",
-      "price": 799.99,
-      "category": "64e7357834434387b5a02ad2"
-    },
-    {
-      "name": "Maison Margiela Artisan Jacket",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Unique artisan jacket by Maison Margiela",
-      "image": "margiela-jacket.jpg",
-      "price": 1299.99,
-      "category": "64e7357834434387b5a02ad0"
-    },
-    {
-      "name": "Comme des Garçons Play Shirt",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Playful shirt from Comme des Garçons collection",
-      "image": "cdg-shirt.jpg",
-      "price": 249.99,
-      "category": "64e7357834434387b5a02ad1"
-    },
-    {
-      "name": "Jean Paul Gaultier Corset",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Iconic corset designed by Jean Paul Gaultier",
-      "image": "jpg-corset.jpg",
-      "price": 599.99,
-      "category": "64e7357834434387b5a02ad2"
-    },
-    {
-      "name": "Phoebe Philo Tote Bag",
-      "user_id": "64e7352a9e81c04fda893581",
-      "description": "Chic tote bag designed by Phoebe Philo",
-      "image": "phoebe-philo-bag.jpg",
-      "price": 449.99,
-      "category": "64e7357834434387b5a02ad1"
-    }
-    
-]
 
+[
+
+  {
+    "name": "Gucci Leather Loafers",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Elegant leather loafers from the iconic Gucci brand",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 599.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Chanel Quilted Handbag",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Timeless quilted handbag designed by Chanel",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 1499.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Versace Silk Scarf",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Luxurious silk scarf with the iconic Versace pattern",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 249.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Louis Vuitton Sunglasses",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Stylish sunglasses from the renowned Louis Vuitton brand",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 399.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Prada Leather Jacket",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "High-quality leather jacket by the esteemed Prada brand",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 799.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Balenciaga Sneakers",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Trendy sneakers designed by Balenciaga",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 599.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Dior Silk Dress",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Elegant silk dress from the prestigious Dior brand",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 1299.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Givenchy Leather Boots",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Sophisticated leather boots by Givenchy",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 899.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Bapesta Sneakers",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Signature Bapesta sneakers with a unique design",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 299.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Cartier Diamond Necklace",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Exquisite diamond necklace crafted by Cartier",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 3499.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Raf Simons Graphic Tee",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Artistic graphic tee designed by Raf Simons",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 149.99,
+    "category": "64e7357834434387b5a02ad1"
+  },
+
+  {
+    "name": "Yves Saint Laurent Blazer",
+    "user_id": "64e7352a9e81c04fda893582",
+    "description": "Sleek blazer from the renowned Yves Saint Laurent brand",
+    "image": "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693412042/wkb1t09vqoievssyre0i.jpg",
+    "price": 1199.99,
+    "category": "64e7357834434387b5a02ad1"
+  }
+]

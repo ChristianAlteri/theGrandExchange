@@ -41,6 +41,12 @@ const userSchema = new Schema({
     required: true,
     trim: true
   },
+  following: [
+    {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    }
+],
   orders: [Order.schema],
   products: [Product.schema]
 });

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Image } from "cloudinary-react";
-import AddToCartButton from "./AddToCartButton";
+import AddToCartButton from "../AddToCartButton";
 import ProductDetailsCard from "./ProductDetailsCard";
 import SelectSize from "./SelectSize";
 
