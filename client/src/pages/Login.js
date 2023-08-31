@@ -14,6 +14,8 @@ function Login(props) {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+      console.log("muttation Response", mutationResponse);
+      
       const token = mutationResponse.data.login.token;
       Auth.login(token);
       console.log('login successful')
