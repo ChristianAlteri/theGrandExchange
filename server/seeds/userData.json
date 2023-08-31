@@ -2,7 +2,7 @@
     {
       "firstName": "Vivienne",
       "lastName": "Westwood",
-      "username": "vwestwood",
+      "userName": "vwestwood",
       "email": "vivienne@example.com",
       "password": "westwoodpass",
       "location": "London",
@@ -12,7 +12,7 @@
     {
       "firstName": "Rei",
       "lastName": "Kawakubo",
-      "username": "rkawakubo",
+      "userName": "rkawakubo",
       "email": "rei@example.com",
       "password": "kawakubopass",
       "location": "Tokyo",
@@ -22,7 +22,7 @@
     {
       "firstName": "Alexander",
       "lastName": "McQueen",
-      "username": "amcqueen",
+      "userName": "amcqueen",
       "email": "alexander@example.com",
       "password": "mcqueenpass",
       "location": "London",
