@@ -34,8 +34,8 @@ function Signup(props) {
         },
       },
     });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
+    const token = localStorage.getItem('id_token');
+    Auth.login(token);
   };
 
   const handleChange = (event) => {
