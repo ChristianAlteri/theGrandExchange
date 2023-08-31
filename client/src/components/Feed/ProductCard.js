@@ -30,23 +30,7 @@ const ProductCard = ({ product }) => {
         hover:cursor-pointer"
       onClick={handleClick}
     >
-      {showDetails && (
-        <>
-          <ProductDetailsCard product={product} />
-          <div className="mt-4">
-            <Image
-              cloudName="dqpfur9e1"
-              publicId={image}
-              alt={name}
-              width="100%"
-              height="auto"
-            />
-          </div>
-          
-        </>
-      )}
-
-      {!showDetails && (
+      
         <>
           <div className="font-semibold">{name}</div>
           <div className="mt-4 font-bold text-blue-600 flex justify-between items-center">
@@ -63,7 +47,7 @@ const ProductCard = ({ product }) => {
             />
           </div>
         </>
-      )}
+      
 
       {/* <div className="text-sm text-gray-600 mt-2">{description}</div> */}
     </div>
@@ -71,3 +55,22 @@ const ProductCard = ({ product }) => {
 };
 
 export default ProductCard;
+
+
+// {showDetails && (
+//   <>
+//     <ProductDetailsCard product={product} />
+//     <div className="mt-4">
+//       <Image
+//         cloudName="dqpfur9e1"
+//         publicId={image}
+//         alt={name}
+//         width="100%"
+//         height="auto"
+//       />
+//     </div>
+    
+//   </>
+// )}
+
+// {!showDetails && (
