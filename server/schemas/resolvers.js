@@ -85,12 +85,13 @@ const userResolvers = {
       }
     },
     login: async (_, { email, password }) => {
+      console.log("HERERERERER" , email, password);
       try {
         const user = await User.findOne({ email });
         if (!user) {
           throw new AuthenticationError("No user found with this email");
         }
-
+        console.log("login user", user);
         const validPassword = await user.isCorrectPassword(password);
         if (!validPassword) {
           throw new AuthenticationError("Incorrect password");

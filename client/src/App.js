@@ -69,6 +69,7 @@ function App() {
       <CategoryBar />
         <Routes>
           <Route path="/" element={<Feed />}/>
+          <Route path="/feed" element={<Feed />}/>
           <Route path="/test" element={<Test />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
