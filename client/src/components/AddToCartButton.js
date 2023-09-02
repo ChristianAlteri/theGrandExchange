@@ -11,7 +11,7 @@ const AddToCartButton = ({ product }) => {
   
     const purchaseDate = dayjs().format("YYYY-MM-DD HH:mm:ss");
     const productId = product._id.toString()
-  
+    
     const input = {
       purchaseDate: purchaseDate,
       user: product.user_id,

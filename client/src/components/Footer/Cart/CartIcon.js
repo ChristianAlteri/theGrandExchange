@@ -1,11 +1,14 @@
 import React from 'react';
 import { CiShoppingCart } from 'react-icons/ci';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const CartIcon = () => {
 
+    const navigate = useNavigate();
+
     const handleCartClick = () => {
-       <Link to="/cart"/>
+        navigate('/cart');
+        console.log("cart clicked");
     };
 
     return (

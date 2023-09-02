@@ -189,12 +189,24 @@ const orderResolvers = {
     getAllOrders: async () => {
       try {
         const orders = await Order.find();
+        console.log("Resolver GetAllOrders return: ", orders);
         return orders;
       } catch (error) {
+        console.log(error);
         throw new Error("Error fetching orders");
       }
     },
+    getOrdersByUserId: async (_, { userId }) => {
+      try {
+        const order = await User.findById(userId);
+        return order;
+      } catch (error) {
+        console.log(error);
+        throw new Error("Error fetching order");
+      }
+    },
   },
+  
   Mutation: {
     createOrder: async (_, { input }) => {
       console.log("HEREEEEEEEEE", input);

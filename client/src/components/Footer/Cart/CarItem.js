@@ -1,16 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Image } from "cloudinary-react";
 
+
 const CartItem = ({ product }) => {
-  const { 
-    _id,
-    name,
-    price,
-    // image
-   } = product;
-   console.log(product);
-   const image = "https://res.cloudinary.com/dqpfur9e1/image/upload/v1693306870/Pants_bqdlul.webp"
+  const { _id, name, price, image } = product;
+  console.log("PODUCt", product);
+  console.log("price", product.price);
+
+ 
+
 
   return (
     <div
@@ -31,7 +30,7 @@ const CartItem = ({ product }) => {
         />
       </div>
       <div className="ml-4 flex-grow">
-      <div className="font-semibold">{name}</div>
+        <div className="font-semibold">{name}</div>
         {price}
       </div>
       <div className="ml-auto">
