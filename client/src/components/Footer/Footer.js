@@ -13,7 +13,10 @@ const Footer = () => {
     };
 
     return (
-        <div className="fixed bottom-0 w-full bg-gray-200 p-4 flex justify-end footer">
+        <div className="fixed bottom-0 w-full bg-gray-200 p-4 flex justify-between footer">
+          <div className="flex justify-center">
+           <a href="github">CONTRIBUTE</a>
+          </div>
           <div className="flex">
             {searchBarOpen && <SearchBar />}
                 <button 

@@ -36,6 +36,10 @@
     }
   }
 
+  body {
+    font-family: 'PP Mori', sans-serif;
+  }
+
 
   .category-bar p{
     font-family: 'PP Mori', sans-serif;
@@ -87,8 +91,8 @@
   }
 
   .footer {
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
   }
 
   .category-bar li {
