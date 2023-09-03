@@ -72,7 +72,7 @@ const SellWithUs = () => {
     <div className="flex justify-center p-40">
       <form
         onSubmit={handleSubmit}
-        className="w-96 p-4 border rounded-lg shadow-lg"
+        className=" p-10 border rounded-lg shadow-lg sell-form"
       >
         <div className="mb-4">
           <label htmlFor="name">Name:</label>
@@ -87,7 +87,7 @@ const SellWithUs = () => {
         <div className="mb-4">
           <label htmlFor="description">Description:</label>
           <input
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border"
             name="description"
             type="text"
             value={formData.description}

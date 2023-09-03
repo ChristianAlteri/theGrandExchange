@@ -47,8 +47,6 @@ const Navbar = () => {
                         space-x-6
 
                         ">
-                        <AnyBrandButton />
-                        <AnySellerButton />
             <div className='flex sell-btn'>
                 <SellWithUs />
                     </div>
