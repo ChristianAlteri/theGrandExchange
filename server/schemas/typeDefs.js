@@ -92,7 +92,7 @@ const typeDefs = gql`
 
     getAllProductsByCategoryId(categoryId: String!): [Product]
     
-
+    getOrdersByUserId(userId: String!): User 
   }
 
   type Mutation {
