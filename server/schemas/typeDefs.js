@@ -86,7 +86,7 @@ const typeDefs = gql`
 
     
     getUser(userId: ID!): User 
-
+    user: User
     
     getAllUsers: [User]
 

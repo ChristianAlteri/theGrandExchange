@@ -74,6 +74,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
+<<<<<<< HEAD
           <Route path="/profile" element={<UserProfile />} />
           <Route
             path="/sell"
@@ -84,6 +85,9 @@ function App() {
                 <Footer />
               </>
             }
+=======
+          <Route path="/sell" element={<SellWithUs />}
+>>>>>>> master
           />
         </Routes>
         <Footer />

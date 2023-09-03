@@ -1,14 +1,28 @@
-import React from "react";
-import ProductCard from "../components/Feed/ProductCard";
+import React, {useEffect, useState} from "react";
 
+import { useQuery } from "@apollo/client";
+import { QUERY_USER } from "../utils/queries";
 
 
 
 function UserProfile() {
+
+    const { data, error, loading } = useQuery(QUERY_USER);
+
+    let user;
+
+    if (data) {
+        user = data.user;
+    }
+
+
+    console.log(data, error)
+
+
     return (
         <div className="container flex object-center justify-center p-5">
             <div className="column col-span-5 p-10">
-                <h3>Welcome User</h3>
+                <h3>Welcome {user} </h3>
                 <h1>User Information</h1>
                 <h1>User Information</h1>
                 <h1>User Information</h1>
