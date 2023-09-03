@@ -8,6 +8,8 @@ const cloudinary = require('cloudinary').v2;
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({

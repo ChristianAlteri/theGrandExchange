@@ -27,6 +27,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import UserProfile from './pages/UserProfile';
 
 
 // New Apollo Client config
@@ -72,6 +73,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/profile" element={<UserProfile />} />
           <Route
             path="/sell"
             element={
