@@ -4,8 +4,9 @@ const User = require("../models/User");
 const Product = require("../models/Product");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const store = require('store')
 const { AuthenticationError } = require("apollo-server");
-const cloudinary = require('cloudinary');
+
 // const { GraphQLUpload } = require('graphql-upload');
 
 
@@ -56,12 +57,25 @@ const userResolvers = {
         throw new Error("Error fetching users");
       }
     },
+    getUserByEmail: async (_, { email }) => {
+      try {
+        const users = await User.findOne({email});
+        return users;
+      } catch (error) {
+        throw new Error("Error fetching users");
+      }
+    },
   },
   Mutation: {
     createUser: async (_, { input }) => {
-      console.log("HEREEEEEEEEE", input);
       try {
+        
         const user = await User.create(input);
+        userId = user._id.toString()
+        console.log("Creat USERRRR", userId);
+        user_id = store.set('userId', { userId: userId })
+        console.log("USEERRRRR IDDDDD", user_id);
+
         return user;
       } catch (error) {
         console.log(error);

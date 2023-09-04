@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Image } from "cloudinary-react";
 import AddToCartButton from "../AddToCartButton";
-import ProductDetailsCard from "./ProductDetailsCard";
-import SelectSize from "./SelectSize";
+
+
 
 const ProductCard = ({ product }) => {
   const { _id, name, user_id, description, image, price, category } = product;
@@ -47,9 +47,6 @@ const ProductCard = ({ product }) => {
             />
           </div>
         </>
-      
-
-      {/* <div className="text-sm text-gray-600 mt-2">{description}</div> */}
     </div>
   );
 };
@@ -57,20 +54,3 @@ const ProductCard = ({ product }) => {
 export default ProductCard;
 
 
-// {showDetails && (
-//   <>
-//     <ProductDetailsCard product={product} />
-//     <div className="mt-4">
-//       <Image
-//         cloudName="dqpfur9e1"
-//         publicId={image}
-//         alt={name}
-//         width="100%"
-//         height="auto"
-//       />
-//     </div>
-    
-//   </>
-// )}
-
-// {!showDetails && (
