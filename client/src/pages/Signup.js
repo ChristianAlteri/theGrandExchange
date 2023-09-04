@@ -53,10 +53,11 @@ function Signup(props) {
   };
 
   return (
-    <div className="flex justify-center ">
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="firstName">First Name:</label>
+    <div className="flex justify-center p-10">
+      <form onSubmit={handleFormSubmit} className="signup-form">
+        <h3>Signup</h3>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="firstName"></label>
           <input
             placeholder=" Lee"
             name="firstName"
@@ -65,8 +66,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="lastName">Last Name:</label>
+        <div className="flex-col space-between my-2 w-4/5">
+          <label htmlFor="lastName"></label>
           <input
             placeholder=" Mcqueen"
             name="lastName"
@@ -75,8 +76,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="userName">Username:</label>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="userName"></label>
           <input
             placeholder=" voss-1"
             name="userName"
@@ -85,8 +86,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="email">Email:</label>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="email"></label>
           <input
             placeholder=" mcqueen@gmail.com"
             name="email"
@@ -95,8 +96,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="DOB">Date Of Birth</label>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="DOB"></label>
           <input
             placeholder="********"
             name="dateOfBirth"
@@ -105,8 +106,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="Location">Location</label>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="Location"></label>
           <input
             placeholder="Western Australia"
             name="location"
@@ -115,8 +116,8 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="pwd">Password:</label>
+        <div className="flex-row space-between my-2 w-4/5">
+          <label htmlFor="pwd"></label>
           <input
             placeholder="********"
             name="password"

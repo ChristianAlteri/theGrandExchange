@@ -27,7 +27,8 @@ const ProductCard = ({ product }) => {
         p-4
         rounded-lg
         overflow-hidden
-        hover:cursor-pointer"
+        hover:cursor-pointer
+        productCard"
       onClick={handleClick}
     >
       

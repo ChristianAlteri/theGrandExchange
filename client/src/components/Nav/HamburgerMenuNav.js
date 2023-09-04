@@ -26,6 +26,17 @@ const HamburgerMenuNav = () => {
     navigate('/signup'); 
   };
 
+
+  const handleProfileClick = () => {
+    if (Auth.loggedIn()) {
+      // Logout logic here
+      navigate('/profile');
+    } else {
+      navigate('/signup');
+    }
+  };
+
+
   
 
   return (
@@ -92,6 +103,19 @@ const HamburgerMenuNav = () => {
             onClick={handleSignupClick}
           >
             Signup
+          </div>
+
+          <div
+            className="
+              flex 
+              flex-col 
+              cursor-pointer 
+              p-2 
+              hover:bg-gray-100
+            "
+            onClick={handleSignupClick}
+          >
+            Your Profile
           </div>
           
         </div>
