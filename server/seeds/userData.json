@@ -6,6 +6,7 @@
       "email": "vivienne@example.com",
       "password": "westwoodpass",
       "location": "London",
+      "dateOfBirth": "1941-04-08",
       "products": [],
       "orders": []
     },
@@ -16,6 +17,7 @@
       "email": "rei@example.com",
       "password": "kawakubopass",
       "location": "Tokyo",
+      "dateOfBirth": "1941-04-08",
       "products": [],
       "orders": []
     },
@@ -26,6 +28,7 @@
       "email": "alexander@example.com",
       "password": "mcqueenpass",
       "location": "London",
+      "dateOfBirth": "1941-04-08",
       "products": [],
       "orders": []
     }

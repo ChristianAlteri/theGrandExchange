@@ -70,35 +70,38 @@ const SellWithUs = () => {
 
   return (
     <div className="flex justify-center p-40">
+      
       <form
         onSubmit={handleSubmit}
-        className="w-96 p-4 border rounded-lg shadow-lg"
+        className=" p-10 border rounded-lg shadow-lg sell-form"
       >
+        <h3>Sell Your Product</h3>
         <div className="mb-4">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name"></label>
           <input
             className="w-full p-2 border rounded"
             name="name"
             type="text"
             value={formData.name}
             onChange={handleChange}
+            placeholder="Name"
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="description"></label>
           <input
-            className="w-full p-2 border rounded"
+            className="w-full p-2 border"
             name="description"
             type="text"
             value={formData.description}
+            placeholder="description"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
           <label htmlFor="image" className="block">
-            Image:
           </label>
-          <div className="w-full p-2 border rounded">
+          <div className="w-full p-2 border rounded upload-input">
             <UploadWidget onUpload={handleOnUpload}></UploadWidget>
             {error && <p className="text-red-500">{error}</p>}
             {url && (
@@ -113,17 +116,18 @@ const SellWithUs = () => {
           </div>
         </div>
         <div className="mb-4">
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="price"></label>
           <input
             className="w-full p-2 border rounded"
             name="price"
             type="number"
             value={formData.price}
+            placeholder="Price"
             onChange={handleChange}
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="category">Category:</label>
+          <label htmlFor="category"></label>
           <select
             className="w-full p-2 border rounded"
             name="category"
@@ -138,7 +142,7 @@ const SellWithUs = () => {
         </div>
         <div className="text-center">
           <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 sell-button"
             type="submit"
           >
             Create Product

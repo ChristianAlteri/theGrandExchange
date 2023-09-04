@@ -19,3 +19,21 @@ h3 {
   font-weight: 700;
   margin-bottom: 1rem;
 }
+
+
+.category-bar {
+  border-top: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.category-title {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.category-title:hover {
+  text-decoration: underline;
+}
+
+

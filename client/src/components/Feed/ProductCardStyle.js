@@ -1,18 +1,11 @@
 import React, { useState } from "react";
 import { Image } from "cloudinary-react";
 import AddToCartButton from "../AddToCartButton";
+import ProductDetailsCard from "./ProductDetailsCard";
+import SelectSize from "./SelectSize";
 
-
-
-const ProductCard = ({ product }) => {
-  const { _id, name, user_id, description, image, price, category } = product;
-
-  const [showDetails, setShowDetails] = useState(false);
-
-  const handleClick = () => {
-    setShowDetails(!showDetails);
-  };
-
+const ProductCardTest = ({ product }) => {
+  
   return (
     <div
       className="
@@ -28,30 +21,29 @@ const ProductCard = ({ product }) => {
         rounded-lg
         overflow-hidden
         hover:cursor-pointer
-        productCard"
-      onClick={handleClick}
+        productCard
+        "
     >
       
         <>
-          <div className="font-semibold">{name}</div>
+          <div className="font-semibold">Product Title</div>
           <div className="mt-4 font-bold text-blue-600 flex justify-between items-center">
-            ${price}
-            <AddToCartButton product={product} />
+            $100
+            <AddToCartButton product={product} className="addToCart" />
           </div>
           <div className="mt-4">
             <Image
               cloudName="dqpfur9e1"
-              publicId={image}
-              alt={name}
               width="100%"
               height="auto"
             />
           </div>
         </>
+      
     </div>
   );
 };
 
-export default ProductCard;
+export default ProductCardTest;
 
 

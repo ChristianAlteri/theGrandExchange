@@ -86,7 +86,11 @@ const typeDefs = gql`
 
     
     getUser(userId: ID!): User 
+
+    user: User
+
     getUserByEmail(email: String!): User 
+
 
     
     getAllUsers: [User]
