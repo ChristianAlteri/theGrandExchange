@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ADD_USER } from "../utils/mutations";
-import Auth from "../utils/auth";
+import { GET_USER_BY_EMAIL } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 
 function Signup(props) {
@@ -16,10 +16,14 @@ function Signup(props) {
     location: "",
   });
   const [createUser] = useMutation(ADD_USER);
+  // TODO: Add back when working
+  // const [getUserId] = useMutation(GET_USER_BY_EMAIL); 
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("form state: ", formState);
+
+    const email = formState.email;
+
     const mutationResponse = await createUser({
       variables: {
         input: {
@@ -29,13 +33,18 @@ function Signup(props) {
           lastName: formState.lastName,
           userName: formState.userName,
           dateOfBirth: formState.dateOfBirth,
-          // Get location from browser??
           location: formState.location,
         },
       },
     });
-    const token = localStorage.getItem('id_token');
-    Auth.login(token);
+
+    // TODO: Fix error. Maybe import it as a function
+    
+    // const idOfUser = await getUserId(email);
+    // console.log("idOfUser", idOfUser);
+
+    // localStorage.setItem('userId', idOfUser);
+
   };
 
   const handleChange = (event) => {
@@ -51,6 +60,8 @@ function Signup(props) {
   const handleLoginClick = () => {
     navigate("/login");
   };
+
+  
 
   return (
     <div className="flex justify-center ">
@@ -96,7 +107,7 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2">
-          <label htmlFor="DOB">Date Of Birth</label>
+          <label htmlFor="DOB">Date Of Birth: </label>
           <input
             placeholder="********"
             name="dateOfBirth"

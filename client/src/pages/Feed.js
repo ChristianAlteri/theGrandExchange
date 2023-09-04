@@ -6,11 +6,14 @@ import { useQuery } from '@apollo/client';
 const Feed = () => {
   const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
 
+
+  
+
   if (!data) {
     return <p>Loading...</p>;
   }
 
-// console.log(data);
+
 
   return (
     <div className="p-8"> 
