@@ -147,3 +147,11 @@ query GetProductsFromFollowing($userId: ID!) {
     }
   }
 `;
+
+export const GET_USER_BY_EMAIL = gql`
+query GetUserByEmail($email: String!) {
+  getUserByEmail(email: $email) {
+    _id
+  }
+}
+`;

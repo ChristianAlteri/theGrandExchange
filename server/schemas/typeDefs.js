@@ -86,13 +86,20 @@ const typeDefs = gql`
 
     
     getUser(userId: ID!): User 
+
     user: User
+
+    getUserByEmail(email: String!): User 
+
+
     
     getAllUsers: [User]
 
     getAllProductsByCategoryId(categoryId: String!): [Product]
     
-    getOrdersByUserId(userId: String!): User 
+    getOrdersByUserId(userId: String!): User
+
+
   }
 
   type Mutation {
