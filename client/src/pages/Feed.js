@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/client';
 import ProductCardTest from '../components/Feed/ProductCardStyle';
 
 const Feed = () => {
-  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  const { data } = useQuery(QUERY_ALL_PRODUCTS);
 
 
   
@@ -24,7 +24,7 @@ const Feed = () => {
             key={product._id} 
             product={product} />
         ))}
-        <ProductCardTest />
+
       </div>
     </div>
   );

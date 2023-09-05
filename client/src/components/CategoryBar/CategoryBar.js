@@ -4,9 +4,9 @@ import GenderButton from './GenderButton';
 const CategoryBar = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // const toggleModal = () => {
+  //   setShowModal(!showModal);
+  // };
 
   const categoryData = [
     { tag: 'skirts' },

@@ -12,7 +12,7 @@ const CartContainer = ({ orders }) => {
     let total = 0;
 
     // Loop through orders and their products to calculate the total
-    orders.orders.forEach(order => {
+    orders.forEach(order => {
       order.products.forEach(product => {
         total += product.price;
       });
@@ -22,11 +22,11 @@ const CartContainer = ({ orders }) => {
     setCartTotal(total);
   }, [orders]);
 
-  console.log("these are the orders: ", orders.orders);
+  console.log("these are the orders: ", orders);
   return (
     <div className="p-8">
       <div className="flex flex-wrap">
-        {orders.orders.map(order => (
+        {orders.map(order => (
           <div key={order._id}>
             {order.products.map(product => (
               <CartItem key={product._id} product={product} />

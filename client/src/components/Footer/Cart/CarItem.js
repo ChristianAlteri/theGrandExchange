@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Image } from "cloudinary-react";
 

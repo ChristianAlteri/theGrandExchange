@@ -2,8 +2,8 @@ import React from 'react';
 
 import sitelogo from '../../assets/sitelogo.svg'
 
-import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
-import AnySellerButton from './MiddleNavButton/AnySellerButton';
+// import AnyBrandButton from './MiddleNavButton/AnyBrandButton';
+// import AnySellerButton from './MiddleNavButton/AnySellerButton';
 import HamburgerMenuNav from './HamburgerMenuNav';
 import { useNavigate } from 'react-router-dom';
 import SellWithUs from './SellWithUs';

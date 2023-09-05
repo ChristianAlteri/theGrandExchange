@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoManOutline, IoWomanOutline } from 'react-icons/io5';
+// import { IoManOutline, IoWomanOutline } from 'react-icons/io5';
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PRODUCTS_BY_CATEGORY_ID } from '../../utils/queries'; // Define this query
 

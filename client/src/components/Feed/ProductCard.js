@@ -5,7 +5,7 @@ import AddToCartButton from "../AddToCartButton";
 
 
 const ProductCard = ({ product }) => {
-  const { _id, name, user_id, description, image, price, category } = product;
+  const { name, image, price, } = product;
 
   const [showDetails, setShowDetails] = useState(false);
 

@@ -97,7 +97,7 @@ const typeDefs = gql`
 
     getAllProductsByCategoryId(categoryId: String!): [Product]
     
-    getOrdersByUserId(userId: String!): User
+    getOrdersByUserId: [Order]
 
 
   }
@@ -113,10 +113,14 @@ const typeDefs = gql`
     addImage(input: ProductInput!): Product
     updateProduct(productId: ID!, input: ProductInput!): Product
     deleteProduct(productId: ID!): Product
+
     createUser(input: UserInput!): User
+    
     updateUser(userId: ID!, input: UserInput!): User
     deleteUser(userId: ID!): User
     login(email: String!, password: String!): AuthPayload
+
+    createOrderV2(productId: ID!): Order
   }
 
   extend type User {

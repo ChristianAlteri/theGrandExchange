@@ -1,26 +1,27 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_ORDER_WITH_PRODUCTS } from "../utils/mutations";
+import { CREATE_ORDER_WITH_PRODUCTSV2 } from "../utils/mutations";
 const dayjs = require('dayjs');
 
 const AddToCartButton = ({ product }) => {
-  const [createOrder] = useMutation(CREATE_ORDER_WITH_PRODUCTS);
+  const [createOrderV2] = useMutation(CREATE_ORDER_WITH_PRODUCTSV2);
 
 
   const handleCreateOrder = async () => {
     console.log("entering create order ", product );
   
-    const purchaseDate = dayjs().format("YYYY-MM-DD HH:mm:ss");
+    // const purchaseDate = dayjs().format("YYYY-MM-DD HH:mm:ss");
     const productId = product._id.toString()
     
-    const input = {
-      purchaseDate: purchaseDate,
-      user: product.user_id,
-      fulfilled: false,
-      productIds: [productId],
-    };
+    // const input = {
+    //   purchaseDate: purchaseDate,
+    //   user: "",
+    //   fulfilled: false,
+    //   productIds: [productId],
+    // };
     
     try {
-      const { data } = await createOrder({ variables: { input } });
+      const { data } = await createOrderV2({ variables: { productId } });
+      
       console.log("Created order:", data);
     } catch (error) {
       if (error.networkError) {

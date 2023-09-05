@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
@@ -7,7 +7,7 @@ import { QUERY_USER } from "../utils/queries";
 
 function UserProfile() {
 
-    const { data, error, loading } = useQuery(QUERY_USER);
+    const { data, error } = useQuery(QUERY_USER);
 
     let user;
 

@@ -5,25 +5,22 @@ import CartContainer from '../components/Footer/Cart/CartContainer'; // Update t
 import Navbar from '../components/Nav/Navbar';
 
 const Cart = () => {
-  const userId = "64f198db782dabbbe7e0deaf";
-
+  // const userId = "";
   // Define the query options with variables
-  const { loading, data } = useQuery(QUERY_ORDERS_FROM_LOGGED_IN_USER, {
-    variables: {
-      userId: userId, // Pass the userId in the variables object
-    },
-  });
-
+  const { data } = useQuery(QUERY_ORDERS_FROM_LOGGED_IN_USER);
+  
+  console.log("Helllllllooooo", data);
   if (!data) {
     return <p>Loading...</p>;
   }
+  
+  const orders = data.user
 
-  console.log("Data:", data);
-  const allOrders = data.getOrdersByUserId;
 
   return (
     <>
-      <CartContainer orders={allOrders} />
+      {/* <CartContainer orders={allOrders} /> */}
+      <CartContainer  />
     </>
   );
 };

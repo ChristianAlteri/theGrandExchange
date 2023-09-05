@@ -8,6 +8,8 @@ export const ADD_USER = gql`
       lastName
       email
       location
+      # dateOfBirth
+      # password
     }
   }
 `;
@@ -42,6 +44,14 @@ export const CREATE_ORDER_WITH_PRODUCTS = gql`
         name
         price
       }
+    }
+  }
+`;
+
+export const CREATE_ORDER_WITH_PRODUCTSV2 = gql`
+  mutation CreateOrderV2($productId: ID!) {
+    createOrderV2(productId: $productId) {
+      _id
     }
   }
 `;
