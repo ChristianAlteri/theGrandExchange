@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { ADD_USER } from "../utils/mutations";
-import { GET_USER_BY_EMAIL } from "../utils/queries";
 import { useMutation } from "@apollo/client";
 
 function Signup(props) {
@@ -15,16 +14,16 @@ function Signup(props) {
     dateOfBirth: "",
     location: "",
   });
-  const [createUser] = useMutation(ADD_USER);
-  // TODO: Add back when working
-  // const [getUserId] = useMutation(GET_USER_BY_EMAIL); 
+  const [CreateUser] = useMutation(ADD_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const email = formState.email;
+    console.log("formState", formState);
+    // TODO: grab the user email and then fetch the object id
+    // const email = formState.email;
 
-    const mutationResponse = await createUser({
+    const mutationResponse = await CreateUser({
       variables: {
         input: {
           email: formState.email,
@@ -37,9 +36,10 @@ function Signup(props) {
         },
       },
     });
+      console.log("mutationResponse ",  mutationResponse);
 
-    // TODO: Fix error. Maybe import it as a function
-    
+    // TODO: Handle mutationResponse and errors.
+
     // const idOfUser = await getUserId(email);
     // console.log("idOfUser", idOfUser);
 
@@ -61,46 +61,44 @@ function Signup(props) {
     navigate("/login");
   };
 
-  
-
   return (
     <div className="flex justify-center p-10">
       <form onSubmit={handleFormSubmit} className="signup-form">
         <h3>Signup</h3>
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="firstName"></label>
+          <label htmlFor="firstName">First Name</label>
           <input
-            placeholder=" Lee"
+            placeholder="Lee"
             name="firstName"
-            type="firstName"
+            type="text"
             id="firstName"
             onChange={handleChange}
           />
         </div>
         <div className="flex-col space-between my-2 w-4/5">
-          <label htmlFor="lastName"></label>
+          <label htmlFor="lastName">Last Name</label>
           <input
-            placeholder=" Mcqueen"
+            placeholder="Mcqueen"
             name="lastName"
-            type="lastName"
+            type="text"
             id="lastName"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="userName"></label>
+          <label htmlFor="userName">Username</label>
           <input
-            placeholder=" voss-1"
+            placeholder="voss-1"
             name="userName"
-            type="userName"
+            type="text"
             id="userName"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="email"></label>
+          <label htmlFor="email">Email</label>
           <input
-            placeholder=" mcqueen@gmail.com"
+            placeholder="mcqueen@gmail.com"
             name="email"
             type="email"
             id="email"
@@ -109,13 +107,9 @@ function Signup(props) {
         </div>
 
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="DOB"></label>
-
-        <div className="flex-row space-between my-2">
-          <label htmlFor="DOB">Date Of Birth: </label>
-
+          <label htmlFor="dateOfBirth">Date of Birth</label>
           <input
-            placeholder="********"
+            placeholder="MM/DD/YYYY"
             name="dateOfBirth"
             type="date"
             id="dateOfBirth"
@@ -123,19 +117,19 @@ function Signup(props) {
           />
         </div>
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="Location"></label>
+          <label htmlFor="location">Location</label>
           <input
             placeholder="Western Australia"
             name="location"
-            type="location"
+            type="text"
             id="location"
             onChange={handleChange}
           />
         </div>
         <div className="flex-row space-between my-2 w-4/5">
-          <label htmlFor="pwd"></label>
+          <label htmlFor="password">Password</label>
           <input
-            placeholder="********"
+            placeholder="Enter Password"
             name="password"
             type="password"
             id="password"

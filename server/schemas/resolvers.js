@@ -4,12 +4,11 @@ const User = require("../models/User");
 const Product = require("../models/Product");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const store = require('store')
+const store = require("store");
 const { AuthenticationError } = require("apollo-server");
+const { signToken } = require("../utils/auth");
 
 // const { GraphQLUpload } = require('graphql-upload');
-
-
 
 const userResolvers = {
   User: {
@@ -33,9 +32,9 @@ const userResolvers = {
     getUser: async (_, { userId }) => {
       try {
         const user = await User.findById(userId).populate({
-          path: 'following', 
+          path: "following",
           populate: {
-            path: 'products', 
+            path: "products",
           },
         });
 
@@ -59,7 +58,7 @@ const userResolvers = {
     },
     getUserByEmail: async (_, { email }) => {
       try {
-        const users = await User.findOne({email});
+        const users = await User.findOne({ email });
         return users;
       } catch (error) {
         throw new Error("Error fetching users");
@@ -69,11 +68,11 @@ const userResolvers = {
   Mutation: {
     createUser: async (_, { input }) => {
       try {
-        
+        console.log("INPUT ", input);
         const user = await User.create(input);
-        userId = user._id.toString()
+        userId = user._id.toString();
         console.log("Creat USERRRR", userId);
-        user_id = store.set('userId', { userId: userId })
+        user_id = store.set("userId", { userId: userId });
         console.log("USEERRRRR IDDDDD", user_id);
 
         return user;
@@ -99,7 +98,7 @@ const userResolvers = {
       }
     },
     login: async (_, { email, password }) => {
-      console.log("HERERERERER" , email, password);
+      console.log("HERERERERER", email, password);
       try {
         const user = await User.findOne({ email });
         if (!user) {
@@ -111,9 +110,14 @@ const userResolvers = {
           throw new AuthenticationError("Incorrect password");
         }
 
-        const token = jwt.sign({ userId: user._id }, "your-secret-key", {
-          expiresIn: "1d",
+        const token = signToken({
+          email,
+          _id: user._id.toString(),
         });
+
+        // const token = jwt.sign({ userId: user._id }, "your-secret-key", {
+        //   expiresIn: "1d",
+        // });
 
         return { user, token };
       } catch (error) {
@@ -210,23 +214,31 @@ const orderResolvers = {
         throw new Error("Error fetching orders");
       }
     },
-    getOrdersByUserId: async (_, { userId }) => {
+    getOrdersByUserId: async (_, __, context) => {
       try {
-        const order = await User.findById(userId);
-        return order;
+        const user = await User.findById(context.user._id).populate({
+          path: 'products'
+        });
+        console.log("THS USERRRRRRR", user);
+    
+        if (!user) {
+          throw new Error('User not found');
+        }
+    
+        return user
       } catch (error) {
         console.log(error);
-        throw new Error("Error fetching order");
+        throw new Error('Error fetching products for the user');
       }
     },
   },
-  
+
   Mutation: {
-    createOrder: async (_, { input }) => {
+    createOrder: async (_, { input }, context) => {
       console.log("HEREEEEEEEEE", input);
 
       try {
-        const order = await Order.create(input); // Use input directly to create order
+        const order = await Order.create({ ...input, user: context.user._id }); // Use input directly to create order
         return order;
       } catch (error) {
         console.error("Error creating order:", error); // Log the actual error
@@ -279,13 +291,12 @@ const productResolvers = {
       }
     },
     getProductsFromFollowing: async (_, { id }) => {
-      const mainUser = await User.findById(id); 
+      const mainUser = await User.findById(id);
 
       console.log("Main USer id; ", mainUser);
-    
+
       return mainUser;
     },
-
   },
   Mutation: {
     createProduct: async (_, { input }) => {
@@ -302,13 +313,13 @@ const productResolvers = {
       console.log("made it into addImage with this input", input);
       try {
         const product = await Product.create({
-          ...input, 
+          ...input,
           image: imgUpload.secure_url,
         });
         return product;
       } catch (error) {
         console.log(error);
-        throw new Error('Error creating product');
+        throw new Error("Error creating product");
       }
     },
     updateProduct: async (_, { productId, input }) => {
@@ -329,16 +340,24 @@ const productResolvers = {
         throw new Error("Error deleting product");
       }
     },
+    createOrderV2: async (_, {productId}, context) => {
+      const asd = await User.findByIdAndUpdate(
+        context.user._id,
+        { $push: { products: productId } },
+        { new: true }
+      );
+        console.log("created and pushed order: ", asd);
+        return asd;
+    }
   },
 };
-
 
 const resolvers = [
   userResolvers,
   categoryResolvers,
   orderResolvers,
   productResolvers,
-// { Upload: GraphQLUpload },
+  // { Upload: GraphQLUpload },
 ];
 
 module.exports = resolvers;

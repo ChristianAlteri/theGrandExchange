@@ -79,22 +79,16 @@ export const QUERY_ORDERS_WITH_PRODUCTS = gql`
 `;
 
 export const QUERY_ORDERS_FROM_LOGGED_IN_USER = gql`
-  query GetOrdersByUserId($userId: String!) {
-    getOrdersByUserId(userId: $userId) {
+  query GetProductsByUserId {
+  getOrdersByUserId {
+    products {
       _id
-      firstName
-      orders {
-        _id
-        fulfilled
-        products {
-          _id
-          name
-          image
-          price
-        }
-      }
+      name
+      image
+      price
     }
   }
+}
 `;
 
 export const QUERY_ALL_PRODUCTS_BY_CATEGORY_NAME = gql`

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Image } from "cloudinary-react";
 import AddToCartButton from "../AddToCartButton";
-import ProductDetailsCard from "./ProductDetailsCard";
-import SelectSize from "./SelectSize";
+// import ProductDetailsCard from "./ProductDetailsCard";
+// import SelectSize from "./SelectSize";
 
 const ProductCardTest = ({ product }) => {
   
